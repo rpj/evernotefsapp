@@ -1,0 +1,76 @@
+8
+
+dir
+746827
+http://svn.apache.org/repos/asf/incubator/thrift/trunk/lib
+http://svn.apache.org/repos/asf
+
+
+
+2009-02-19T21:21:44.814257Z
+746000
+bryanduxbury
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+13f79535-47bb-0310-9956-ffa450edef68
+
+csharp
+dir
+
+java
+dir
+
+cpp
+dir
+
+erl
+dir
+
+perl
+dir
+
+rb
+dir
+
+cocoa
+dir
+
+st
+dir
+
+php
+dir
+
+py
+dir
+
+Makefile.am
+file
+
+
+
+
+2009-02-22T21:43:45.000000Z
+7e95d68d5d258041026fe14a472f93b0
+2009-02-01T04:47:30.458428Z
+739697
+jake
+
+hs
+dir
+
+ocaml
+dir
+

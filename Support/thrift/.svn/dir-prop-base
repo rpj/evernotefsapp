@@ -1,0 +1,26 @@
+K 10
+svn:ignore
+V 223
+Makefile
+Makefile.in
+aclocal.m4
+autom4te.cache
+autoscan.log
+config.guess
+config.h
+config.hin
+config.log
+config.status
+config.sub
+configure
+configure.scan
+depcomp
+ignores
+install-sh
+libtool
+ltmain.sh
+missing
+stamp-h1
+ylwrap
+
+END

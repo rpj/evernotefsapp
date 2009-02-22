@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/665467/incubator/thrift/trunk/lib/cocoa/src/transport
+END
+TSocketClient.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/665309/incubator/thrift/trunk/lib/cocoa/src/transport/TSocketClient.h
+END
+TNSFileHandleTransport.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/665309/incubator/thrift/trunk/lib/cocoa/src/transport/TNSFileHandleTransport.h
+END
+TNSStreamTransport.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/asf/!svn/ver/665309/incubator/thrift/trunk/lib/cocoa/src/transport/TNSStreamTransport.h
+END
+TTransportException.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/665354/incubator/thrift/trunk/lib/cocoa/src/transport/TTransportException.h
+END
+TSocketClient.m
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/665467/incubator/thrift/trunk/lib/cocoa/src/transport/TSocketClient.m
+END
+TTransport.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/665309/incubator/thrift/trunk/lib/cocoa/src/transport/TTransport.h
+END
+THTTPClient.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/665467/incubator/thrift/trunk/lib/cocoa/src/transport/THTTPClient.h
+END
+TNSFileHandleTransport.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/665467/incubator/thrift/trunk/lib/cocoa/src/transport/TNSFileHandleTransport.m
+END
+TNSStreamTransport.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/asf/!svn/ver/665467/incubator/thrift/trunk/lib/cocoa/src/transport/TNSStreamTransport.m
+END
+TTransportException.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/665354/incubator/thrift/trunk/lib/cocoa/src/transport/TTransportException.m
+END
+THTTPClient.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/665467/incubator/thrift/trunk/lib/cocoa/src/transport/THTTPClient.m
+END

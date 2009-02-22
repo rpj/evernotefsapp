@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/665467/incubator/thrift/trunk/lib/cocoa/src/protocol
+END
+TProtocolException.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/665309/incubator/thrift/trunk/lib/cocoa/src/protocol/TProtocolException.m
+END
+TBinaryProtocol.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/asf/!svn/ver/665467/incubator/thrift/trunk/lib/cocoa/src/protocol/TBinaryProtocol.h
+END
+TProtocolFactory.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/665309/incubator/thrift/trunk/lib/cocoa/src/protocol/TProtocolFactory.h
+END
+TBinaryProtocol.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/asf/!svn/ver/665467/incubator/thrift/trunk/lib/cocoa/src/protocol/TBinaryProtocol.m
+END
+TProtocolUtil.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/665309/incubator/thrift/trunk/lib/cocoa/src/protocol/TProtocolUtil.h
+END
+TProtocolException.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/665309/incubator/thrift/trunk/lib/cocoa/src/protocol/TProtocolException.h
+END
+TProtocol.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/665309/incubator/thrift/trunk/lib/cocoa/src/protocol/TProtocol.h
+END
+TProtocolUtil.m
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/665309/incubator/thrift/trunk/lib/cocoa/src/protocol/TProtocolUtil.m
+END

@@ -1,0 +1,184 @@
+8
+
+dir
+746827
+http://svn.apache.org/repos/asf/incubator/thrift/trunk
+http://svn.apache.org/repos/asf
+
+
+
+2009-02-21T01:57:46.431563Z
+746429
+bryanduxbury
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+13f79535-47bb-0310-9956-ffa450edef68
+
+test
+dir
+
+LICENSE
+file
+
+
+
+
+2009-02-22T21:43:48.000000Z
+6963cfc0b4dc802e692948404c354ef1
+2008-02-06T22:18:40.000000Z
+665467
+dreiss
+
+bootstrap.sh
+file
+
+
+
+
+2009-02-22T21:43:48.000000Z
+f2b9e8407e00c4f3e656db6bc3e43b27
+2008-02-23T21:56:16.000000Z
+665493
+dreiss
+has-props
+
+README
+file
+
+
+
+
+2009-02-22T21:43:48.000000Z
+a0e295934e5c509bcdb53fbd81900b39
+2009-01-30T19:10:27.861492Z
+739380
+gstein
+
+CONTRIBUTORS
+file
+
+
+
+
+2009-02-22T21:43:48.000000Z
+180db43ca9e59a148272f82e6433dea6
+2008-04-21T18:08:07.000000Z
+665665
+dreiss
+
+aclocal
+dir
+
+cleanup.sh
+file
+
+
+
+
+2009-02-22T21:43:48.000000Z
+d20e8b271376e85e9c0a6b8afe45a4a7
+2008-03-27T21:39:55.000000Z
+665588
+dreiss
+has-props
+
+contrib
+dir
+
+configure.ac
+file
+
+
+
+
+2009-02-22T21:43:48.000000Z
+fc2199ed1d777b702223a5ec82bfe9ee
+2009-02-17T20:28:30.920359Z
+745240
+dreiss
+
+tutorial
+dir
+
+.gitignore
+file
+
+
+
+
+2009-02-22T21:43:48.000000Z
+52d3232aa1e5ab5c7557e55733437bf5
+2009-02-01T04:47:30.458428Z
+739697
+jake
+
+doc
+dir
+
+lib
+dir
+
+COPYING
+file
+
+
+
+
+2009-02-22T21:43:48.000000Z
+6963cfc0b4dc802e692948404c354ef1
+2008-02-06T22:18:40.000000Z
+665467
+dreiss
+
+Makefile.am
+file
+
+
+
+
+2009-02-22T21:43:48.000000Z
+897b9bb2a4ef13c9921640aa2032466c
+2009-02-07T02:36:35.361163Z
+741824
+dreiss
+
+compiler
+dir
+
+print_version.sh
+file
+
+
+
+
+2009-02-22T21:43:48.000000Z
+beaab15a77d4e5f33736f8c890ce7da9
+2008-06-30T21:55:52.452823Z
+672943
+dreiss
+has-props
+
+NEWS
+file
+
+
+
+
+2009-02-22T21:43:48.000000Z
+6644653f6212b40b2a712e6b3a1c2964
+2008-04-21T18:08:07.000000Z
+665665
+dreiss
+

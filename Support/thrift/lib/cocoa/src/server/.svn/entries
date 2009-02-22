@@ -1,0 +1,52 @@
+8
+
+dir
+746827
+http://svn.apache.org/repos/asf/incubator/thrift/trunk/lib/cocoa/src/server
+http://svn.apache.org/repos/asf
+
+
+
+2008-02-06T22:18:40.000000Z
+665467
+dreiss
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+13f79535-47bb-0310-9956-ffa450edef68
+
+TSocketServer.h
+file
+
+
+
+
+2009-02-22T21:43:43.000000Z
+9f62c78d5525f8a6d1a78670ff9ad596
+2008-02-06T22:18:40.000000Z
+665467
+dreiss
+
+TSocketServer.m
+file
+
+
+
+
+2009-02-22T21:43:43.000000Z
+93659cedd5051740981362a85e3be47f
+2008-02-06T22:18:40.000000Z
+665467
+dreiss
+

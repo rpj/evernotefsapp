@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		941920EB0E94A7D200DDB01C /* EvernoteFUSE.m in Sources */ = {isa = PBXBuildFile; fileRef = 941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */; };
+		941920EF0E94A7E200DDB01C /* ytfs.icns in Resources */ = {isa = PBXBuildFile; fileRef = 941920EE0E94A7E200DDB01C /* ytfs.icns */; };
+		941921170E94A7F800DDB01C /* MacFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941921160E94A7F800DDB01C /* MacFUSE.framework */; };
+		941921210E94A86B00DDB01C /* EvernoteFSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */; };
+		9419217E0E95730700DDB01C /* EvernoteConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */; };
+		94892FB30F52004200AB51F5 /* EDAMLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FAA0F52004200AB51F5 /* EDAMLimits.m */; };
+		94892FB40F52004200AB51F5 /* Errors.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FAE0F52004200AB51F5 /* Errors.m */; };
+		94892FB50F52004200AB51F5 /* Types.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FAF0F52004200AB51F5 /* Types.m */; };
+		94892FB60F52004200AB51F5 /* UserStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FB00F52004200AB51F5 /* UserStore.m */; };
+		94892FB70F52004200AB51F5 /* NoteStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FB10F52004200AB51F5 /* NoteStore.m */; };
+		94892FDE0F52009000AB51F5 /* THTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FC40F52009000AB51F5 /* THTTPClient.m */; };
+		94892FDF0F52009000AB51F5 /* TNSFileHandleTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FC60F52009000AB51F5 /* TNSFileHandleTransport.m */; };
+		94892FE00F52009000AB51F5 /* TNSStreamTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FC80F52009000AB51F5 /* TNSStreamTransport.m */; };
+		94892FE10F52009000AB51F5 /* TSocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FCA0F52009000AB51F5 /* TSocketClient.m */; };
+		94892FE20F52009000AB51F5 /* TTransportException.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FCD0F52009000AB51F5 /* TTransportException.m */; };
+		94892FE30F52009000AB51F5 /* TSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FD10F52009000AB51F5 /* TSocketServer.m */; };
+		94892FE40F52009000AB51F5 /* TException.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FD30F52009000AB51F5 /* TException.m */; };
+		94892FE50F52009000AB51F5 /* TBinaryProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FD60F52009000AB51F5 /* TBinaryProtocol.m */; };
+		94892FE60F52009000AB51F5 /* TProtocolException.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FD90F52009000AB51F5 /* TProtocolException.m */; };
+		94892FE70F52009000AB51F5 /* TProtocolUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FDC0F52009000AB51F5 /* TProtocolUtil.m */; };
+		94892FE80F52009000AB51F5 /* TApplicationException.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FDD0F52009000AB51F5 /* TApplicationException.m */; };
+		948931440F5211EB00AB51F5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948931430F5211EB00AB51F5 /* Security.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* EvernoteFSApp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteFSApp_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* EvernoteFSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EvernoteFSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		941920E90E94A7D200DDB01C /* EvernoteFUSE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteFUSE.h; sourceTree = "<group>"; };
+		941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvernoteFUSE.m; sourceTree = "<group>"; };
+		941920EE0E94A7E200DDB01C /* ytfs.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ytfs.icns; sourceTree = "<group>"; };
+		941921160E94A7F800DDB01C /* MacFUSE.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacFUSE.framework; path = /Library/Frameworks/MacFUSE.framework; sourceTree = "<absolute>"; };
+		9419211F0E94A86B00DDB01C /* EvernoteFSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteFSController.h; sourceTree = "<group>"; };
+		941921200E94A86B00DDB01C /* EvernoteFSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvernoteFSController.m; sourceTree = "<group>"; };
+		9419217C0E95730700DDB01C /* EvernoteConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteConnection.h; sourceTree = "<group>"; };
+		9419217D0E95730700DDB01C /* EvernoteConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvernoteConnection.m; sourceTree = "<group>"; };
+		94892FA90F52004200AB51F5 /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Types.h; path = "Support/evernote-api-1.11/src/cocoa/Types.h"; sourceTree = "<group>"; };
+		94892FAA0F52004200AB51F5 /* EDAMLimits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDAMLimits.m; path = "Support/evernote-api-1.11/src/cocoa/EDAMLimits.m"; sourceTree = "<group>"; };
+		94892FAB0F52004200AB51F5 /* UserStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserStore.h; path = "Support/evernote-api-1.11/src/cocoa/UserStore.h"; sourceTree = "<group>"; };
+		94892FAC0F52004200AB51F5 /* NoteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteStore.h; path = "Support/evernote-api-1.11/src/cocoa/NoteStore.h"; sourceTree = "<group>"; };
+		94892FAD0F52004200AB51F5 /* EDAMLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDAMLimits.h; path = "Support/evernote-api-1.11/src/cocoa/EDAMLimits.h"; sourceTree = "<group>"; };
+		94892FAE0F52004200AB51F5 /* Errors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Errors.m; path = "Support/evernote-api-1.11/src/cocoa/Errors.m"; sourceTree = "<group>"; };
+		94892FAF0F52004200AB51F5 /* Types.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Types.m; path = "Support/evernote-api-1.11/src/cocoa/Types.m"; sourceTree = "<group>"; };
+		94892FB00F52004200AB51F5 /* UserStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserStore.m; path = "Support/evernote-api-1.11/src/cocoa/UserStore.m"; sourceTree = "<group>"; };
+		94892FB10F52004200AB51F5 /* NoteStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteStore.m; path = "Support/evernote-api-1.11/src/cocoa/NoteStore.m"; sourceTree = "<group>"; };
+		94892FB20F52004200AB51F5 /* Errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Errors.h; path = "Support/evernote-api-1.11/src/cocoa/Errors.h"; sourceTree = "<group>"; };
+		94892FC10F52009000AB51F5 /* TProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TProcessor.h; path = Support/thrift/lib/cocoa/src/TProcessor.h; sourceTree = "<group>"; };
+		94892FC30F52009000AB51F5 /* THTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THTTPClient.h; sourceTree = "<group>"; };
+		94892FC40F52009000AB51F5 /* THTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THTTPClient.m; sourceTree = "<group>"; };
+		94892FC50F52009000AB51F5 /* TNSFileHandleTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNSFileHandleTransport.h; sourceTree = "<group>"; };
+		94892FC60F52009000AB51F5 /* TNSFileHandleTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNSFileHandleTransport.m; sourceTree = "<group>"; };
+		94892FC70F52009000AB51F5 /* TNSStreamTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNSStreamTransport.h; sourceTree = "<group>"; };
+		94892FC80F52009000AB51F5 /* TNSStreamTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNSStreamTransport.m; sourceTree = "<group>"; };
+		94892FC90F52009000AB51F5 /* TSocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSocketClient.h; sourceTree = "<group>"; };
+		94892FCA0F52009000AB51F5 /* TSocketClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSocketClient.m; sourceTree = "<group>"; };
+		94892FCB0F52009000AB51F5 /* TTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTransport.h; sourceTree = "<group>"; };
+		94892FCC0F52009000AB51F5 /* TTransportException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTransportException.h; sourceTree = "<group>"; };
+		94892FCD0F52009000AB51F5 /* TTransportException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTransportException.m; sourceTree = "<group>"; };
+		94892FCE0F52009000AB51F5 /* TApplicationException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TApplicationException.h; path = Support/thrift/lib/cocoa/src/TApplicationException.h; sourceTree = "<group>"; };
+		94892FD00F52009000AB51F5 /* TSocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSocketServer.h; sourceTree = "<group>"; };
+		94892FD10F52009000AB51F5 /* TSocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSocketServer.m; sourceTree = "<group>"; };
+		94892FD20F52009000AB51F5 /* TException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TException.h; path = Support/thrift/lib/cocoa/src/TException.h; sourceTree = "<group>"; };
+		94892FD30F52009000AB51F5 /* TException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TException.m; path = Support/thrift/lib/cocoa/src/TException.m; sourceTree = "<group>"; };
+		94892FD50F52009000AB51F5 /* TBinaryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBinaryProtocol.h; sourceTree = "<group>"; };
+		94892FD60F52009000AB51F5 /* TBinaryProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBinaryProtocol.m; sourceTree = "<group>"; };
+		94892FD70F52009000AB51F5 /* TProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocol.h; sourceTree = "<group>"; };
+		94892FD80F52009000AB51F5 /* TProtocolException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolException.h; sourceTree = "<group>"; };
+		94892FD90F52009000AB51F5 /* TProtocolException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TProtocolException.m; sourceTree = "<group>"; };
+		94892FDA0F52009000AB51F5 /* TProtocolFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolFactory.h; sourceTree = "<group>"; };
+		94892FDB0F52009000AB51F5 /* TProtocolUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolUtil.h; sourceTree = "<group>"; };
+		94892FDC0F52009000AB51F5 /* TProtocolUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TProtocolUtil.m; sourceTree = "<group>"; };
+		94892FDD0F52009000AB51F5 /* TApplicationException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TApplicationException.m; path = Support/thrift/lib/cocoa/src/TApplicationException.m; sourceTree = "<group>"; };
+		948931430F5211EB00AB51F5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				941921170E94A7F800DDB01C /* MacFUSE.framework in Frameworks */,
+				948931440F5211EB00AB51F5 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				941920E90E94A7D200DDB01C /* EvernoteFUSE.h */,
+				941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */,
+				9419211F0E94A86B00DDB01C /* EvernoteFSController.h */,
+				941921200E94A86B00DDB01C /* EvernoteFSController.m */,
+				9419217C0E95730700DDB01C /* EvernoteConnection.h */,
+				9419217D0E95730700DDB01C /* EvernoteConnection.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				941921160E94A7F800DDB01C /* MacFUSE.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				948931430F5211EB00AB51F5 /* Security.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* EvernoteFSApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* EvernoteFSApp */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = EvernoteFSApp;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				94892FBD0F52008100AB51F5 /* Thrift */,
+				94892FA50F52002800AB51F5 /* EDAM */,
+				32CA4F630368D1EE00C91783 /* EvernoteFSApp_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				941920EE0E94A7E200DDB01C /* ytfs.icns */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94892FA50F52002800AB51F5 /* EDAM */ = {
+			isa = PBXGroup;
+			children = (
+				94892FA90F52004200AB51F5 /* Types.h */,
+				94892FAA0F52004200AB51F5 /* EDAMLimits.m */,
+				94892FAB0F52004200AB51F5 /* UserStore.h */,
+				94892FAC0F52004200AB51F5 /* NoteStore.h */,
+				94892FAD0F52004200AB51F5 /* EDAMLimits.h */,
+				94892FAE0F52004200AB51F5 /* Errors.m */,
+				94892FAF0F52004200AB51F5 /* Types.m */,
+				94892FB00F52004200AB51F5 /* UserStore.m */,
+				94892FB10F52004200AB51F5 /* NoteStore.m */,
+				94892FB20F52004200AB51F5 /* Errors.h */,
+			);
+			name = EDAM;
+			sourceTree = "<group>";
+		};
+		94892FBD0F52008100AB51F5 /* Thrift */ = {
+			isa = PBXGroup;
+			children = (
+				94892FC10F52009000AB51F5 /* TProcessor.h */,
+				94892FC20F52009000AB51F5 /* transport */,
+				94892FCE0F52009000AB51F5 /* TApplicationException.h */,
+				94892FCF0F52009000AB51F5 /* server */,
+				94892FD20F52009000AB51F5 /* TException.h */,
+				94892FD30F52009000AB51F5 /* TException.m */,
+				94892FD40F52009000AB51F5 /* protocol */,
+				94892FDD0F52009000AB51F5 /* TApplicationException.m */,
+			);
+			name = Thrift;
+			sourceTree = "<group>";
+		};
+		94892FC20F52009000AB51F5 /* transport */ = {
+			isa = PBXGroup;
+			children = (
+				94892FC30F52009000AB51F5 /* THTTPClient.h */,
+				94892FC40F52009000AB51F5 /* THTTPClient.m */,
+				94892FC50F52009000AB51F5 /* TNSFileHandleTransport.h */,
+				94892FC60F52009000AB51F5 /* TNSFileHandleTransport.m */,
+				94892FC70F52009000AB51F5 /* TNSStreamTransport.h */,
+				94892FC80F52009000AB51F5 /* TNSStreamTransport.m */,
+				94892FC90F52009000AB51F5 /* TSocketClient.h */,
+				94892FCA0F52009000AB51F5 /* TSocketClient.m */,
+				94892FCB0F52009000AB51F5 /* TTransport.h */,
+				94892FCC0F52009000AB51F5 /* TTransportException.h */,
+				94892FCD0F52009000AB51F5 /* TTransportException.m */,
+			);
+			name = transport;
+			path = Support/thrift/lib/cocoa/src/transport;
+			sourceTree = "<group>";
+		};
+		94892FCF0F52009000AB51F5 /* server */ = {
+			isa = PBXGroup;
+			children = (
+				94892FD00F52009000AB51F5 /* TSocketServer.h */,
+				94892FD10F52009000AB51F5 /* TSocketServer.m */,
+			);
+			name = server;
+			path = Support/thrift/lib/cocoa/src/server;
+			sourceTree = "<group>";
+		};
+		94892FD40F52009000AB51F5 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				94892FD50F52009000AB51F5 /* TBinaryProtocol.h */,
+				94892FD60F52009000AB51F5 /* TBinaryProtocol.m */,
+				94892FD70F52009000AB51F5 /* TProtocol.h */,
+				94892FD80F52009000AB51F5 /* TProtocolException.h */,
+				94892FD90F52009000AB51F5 /* TProtocolException.m */,
+				94892FDA0F52009000AB51F5 /* TProtocolFactory.h */,
+				94892FDB0F52009000AB51F5 /* TProtocolUtil.h */,
+				94892FDC0F52009000AB51F5 /* TProtocolUtil.m */,
+			);
+			name = protocol;
+			path = Support/thrift/lib/cocoa/src/protocol;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* EvernoteFSApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "EvernoteFSApp" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EvernoteFSApp;
+			productInstallPath = "$(HOME)/Applications";
+			productName = EvernoteFSApp;
+			productReference = 8D1107320486CEB800E47090 /* EvernoteFSApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "EvernoteFSApp" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* EvernoteFSApp */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* EvernoteFSApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				941920EF0E94A7E200DDB01C /* ytfs.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				941920EB0E94A7D200DDB01C /* EvernoteFUSE.m in Sources */,
+				941921210E94A86B00DDB01C /* EvernoteFSController.m in Sources */,
+				9419217E0E95730700DDB01C /* EvernoteConnection.m in Sources */,
+				94892FB30F52004200AB51F5 /* EDAMLimits.m in Sources */,
+				94892FB40F52004200AB51F5 /* Errors.m in Sources */,
+				94892FB50F52004200AB51F5 /* Types.m in Sources */,
+				94892FB60F52004200AB51F5 /* UserStore.m in Sources */,
+				94892FB70F52004200AB51F5 /* NoteStore.m in Sources */,
+				94892FDE0F52009000AB51F5 /* THTTPClient.m in Sources */,
+				94892FDF0F52009000AB51F5 /* TNSFileHandleTransport.m in Sources */,
+				94892FE00F52009000AB51F5 /* TNSStreamTransport.m in Sources */,
+				94892FE10F52009000AB51F5 /* TSocketClient.m in Sources */,
+				94892FE20F52009000AB51F5 /* TTransportException.m in Sources */,
+				94892FE30F52009000AB51F5 /* TSocketServer.m in Sources */,
+				94892FE40F52009000AB51F5 /* TException.m in Sources */,
+				94892FE50F52009000AB51F5 /* TBinaryProtocol.m in Sources */,
+				94892FE60F52009000AB51F5 /* TProtocolException.m in Sources */,
+				94892FE70F52009000AB51F5 /* TProtocolUtil.m in Sources */,
+				94892FE80F52009000AB51F5 /* TApplicationException.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = EvernoteFSApp_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = EvernoteFSApp;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = EvernoteFSApp_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = EvernoteFSApp;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "EvernoteFSApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "EvernoteFSApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
