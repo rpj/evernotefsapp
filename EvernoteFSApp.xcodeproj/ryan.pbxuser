@@ -710,9 +710,9 @@
 	};
 	941921200E94A86B00DDB01C /* EvernoteFSController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {847, 2170}}";
-			sepNavSelRange = "{2928, 20}";
-			sepNavVisRange = "{2386, 1987}";
+			sepNavIntBoundsRect = "{{0, 0}, {12, 3164}}";
+			sepNavSelRange = "{5344, 0}";
+			sepNavVisRange = "{0, 0}";
 			sepNavWindowFrame = "{{490, 10}, {894, 868}}";
 		};
 	};
@@ -825,7 +825,7 @@
 	};
 	9419217D0E95730700DDB01C /* EvernoteConnection.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {914, 1190}}";
+			sepNavIntBoundsRect = "{{0, 0}, {914, 1218}}";
 			sepNavSelRange = "{2559, 0}";
 			sepNavVisRange = "{756, 1806}";
 		};
@@ -1000,7 +1000,7 @@
 	};
 	94892FAF0F52004200AB51F5 /* Types.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {831, 69174}}";
+			sepNavIntBoundsRect = "{{0, 0}, {831, 68698}}";
 			sepNavSelRange = "{46865, 25}";
 			sepNavVisRange = "{46380, 1716}";
 			sepNavWindowFrame = "{{15, -1}, {878, 874}}";
