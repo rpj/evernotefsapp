@@ -8,15 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class EDAMUserStoreClient;
+@class EDAMUserStoreClient, EDAMUser;
 
 @interface EvernoteConnection : NSObject {
 	NSString* _username;
 	NSString* _password;
 	
 	EDAMUserStoreClient* _userStoreClient;
+	EDAMUser* _authedUser;
 }
 
 - (id) initWithUserName:(NSString*)username andPassword:(NSString*)password;
 - (BOOL) authenticate;
+
+- (NSString*) username;
 @end

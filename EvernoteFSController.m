@@ -17,6 +17,15 @@ static NSString* kUserDefAccountNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.A
 ///////////////////////////////////////////////////////////////////////////////
 @implementation EvernoteFSController
 ///////////////////////////////////////////////////////////////////////////////
+- (id) init {
+	if ((self = [super init])) {
+		_efs = nil;
+		_econn = nil;
+	}
+	
+	return self;
+}
+///////////////////////////////////////////////////////////////////////////////
 - (IBAction) verifyAccount:(id)sender {
 	NSString* u = [_username stringValue];
 	NSString* p = [_password stringValue];
@@ -46,9 +55,14 @@ static NSString* kUserDefAccountNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.A
 				
 				if (noErr != retStat) {
 					NSString* err = @"Unknown error.";
+					// in the case of this error, we really need to modify the keychain content...
 					if (retStat == -25299) err = @"Password already exists.";
 					
 					[_info setStringValue:[NSString stringWithFormat:@"Error saving to keychain: %@", err]];
+				}
+				else {
+					NSLog(@"Checking keychain and trying to mount...");
+					[self checkKeychainAndMount];
 				}
 				
 				[_prefPanel close];
@@ -67,7 +81,7 @@ static NSString* kUserDefAccountNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.A
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-- (void)applicationDidFinishLaunching:(NSNotification *)notification {
+- (void) checkKeychainAndMount {
 	NSUserDefaults* udef = [NSUserDefaults standardUserDefaults];
 	NSString* accountName = [udef stringForKey:kUserDefAccountNameKey];
 	
@@ -87,22 +101,39 @@ static NSString* kUserDefAccountNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.A
 			if (noErr == retStat) {
 				[_username setStringValue:accountName];
 				[_password setStringValue:[NSString stringWithCString:passwordString length:passwordLength]];
+				
+				if (!_econn) {
+					_econn = [[EvernoteConnection alloc] initWithUserName:[_username stringValue] 
+															  andPassword:[_password stringValue]];
+				}
+				
+				if (![_econn authenticate]) {
+					[_info setStringValue:@"Authentication failed."];
+					[_prefPanel makeKeyAndOrderFront:self];
+				}
+				else {
+					NSString* volName = [NSString stringWithFormat:@"%@'s Evernote", [_econn username]];
+					_efs = [[EvernoteFUSE alloc] initWithVolumeName:volName];
+					NSLog(@"Built EvernoteFUSE//%@", volName);
+				}
 			}
 		}
 	}
 	else {
+		[_info setStringValue:@"Enter Evernote account information:"];
 		[_prefPanel makeKeyAndOrderFront:self];
-	}
-		
-	/*
-					_efs = [[EvernoteFUSE alloc] initWithVolumeName:
-							[NSString stringWithFormat:@"%@'s Evernote", [user username]]];
-	 */
+	}	
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (void)applicationDidFinishLaunching:(NSNotification *)notification {
+	[self checkKeychainAndMount];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
 	[_efs release];
+	[_econn release];
 	
 	return NSTerminateNow;
 }

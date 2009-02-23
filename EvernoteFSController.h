@@ -24,4 +24,5 @@
 }
 
 - (IBAction) verifyAccount:(id)sender;
+- (void) checkKeychainAndMount;
 @end

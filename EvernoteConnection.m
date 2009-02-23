@@ -45,7 +45,8 @@ static NSString* kConsumerKey = @"soulsurfer-5999";
 											  :[EDAMUserStoreConstants EDAM_VERSION_MAJOR] 
 											  :[EDAMUserStoreConstants EDAM_VERSION_MINOR]]) {
 				EDAMAuthenticationResult* authRes = [_userStoreClient authenticate:_username :_password :kConsumerKey :nil];
-				retVal = (authRes && [authRes authenticationTokenIsSet] && [authRes userIsSet] && [[authRes user] usernameIsSet]);
+				_authedUser = [[authRes user] retain];
+				retVal = (authRes && [authRes authenticationTokenIsSet] && [authRes userIsSet] && [_authedUser usernameIsSet]);
 			}
 		}
 		@catch (NSException * e) {
@@ -54,14 +55,21 @@ static NSString* kConsumerKey = @"soulsurfer-5999";
 		}
 	}
 	
-	NSLog(@"authenticate returning %d", retVal);
 	return retVal;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (NSString*) username {
+	if (_authedUser && [_authedUser usernameIsSet]) return [_authedUser username];
+	else return nil;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 - (void) dealloc {
 	[_username release];
 	[_password release];
+	[_userStoreClient release];
+	[_authedUser release];
 	
 	[super dealloc];
 }

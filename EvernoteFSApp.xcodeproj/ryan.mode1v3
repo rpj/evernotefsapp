@@ -216,11 +216,11 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>948932590F52209D00AB51F5</string>
+						<string>948932AF0F52266100AB51F5</string>
 						<key>history</key>
 						<array>
-							<string>948932550F52209D00AB51F5</string>
-							<string>948932560F52209D00AB51F5</string>
+							<string>948932830F5224CA00AB51F5</string>
+							<string>948932840F5224CA00AB51F5</string>
 						</array>
 						<key>prevStack</key>
 						<array>
@@ -258,6 +258,12 @@
 							<string>948932290F521F2F00AB51F5</string>
 							<string>948932570F52209D00AB51F5</string>
 							<string>948932580F52209D00AB51F5</string>
+							<string>948932680F5223FF00AB51F5</string>
+							<string>948932690F5223FF00AB51F5</string>
+							<string>948932850F5224CA00AB51F5</string>
+							<string>948932860F5224CA00AB51F5</string>
+							<string>948932870F5224CA00AB51F5</string>
+							<string>948932880F5224CA00AB51F5</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -294,11 +300,11 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>9489325A0F52209D00AB51F5</string>
+						<string>948932B00F52266100AB51F5</string>
 						<key>history</key>
 						<array>
-							<string>948931620F5212EF00AB51F5</string>
-							<string>9489324A0F52201D00AB51F5</string>
+							<string>9489326B0F5223FF00AB51F5</string>
+							<string>9489326C0F5223FF00AB51F5</string>
 						</array>
 						<key>prevStack</key>
 						<array>
@@ -307,6 +313,18 @@
 							<string>948931660F5212EF00AB51F5</string>
 							<string>948931670F5212EF00AB51F5</string>
 							<string>948931680F5212EF00AB51F5</string>
+							<string>9489326D0F5223FF00AB51F5</string>
+							<string>9489326E0F5223FF00AB51F5</string>
+							<string>9489326F0F5223FF00AB51F5</string>
+							<string>948932700F5223FF00AB51F5</string>
+							<string>948932710F5223FF00AB51F5</string>
+							<string>948932720F5223FF00AB51F5</string>
+							<string>948932730F5223FF00AB51F5</string>
+							<string>948932740F5223FF00AB51F5</string>
+							<string>948932750F5223FF00AB51F5</string>
+							<string>948932760F5223FF00AB51F5</string>
+							<string>948932770F5223FF00AB51F5</string>
+							<string>948932780F5223FF00AB51F5</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -343,11 +361,11 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>9489325B0F52209D00AB51F5</string>
+						<string>948932B10F52266100AB51F5</string>
 						<key>history</key>
 						<array>
 							<string>9489311A0F520CE000AB51F5</string>
-							<string>9489311B0F520CE000AB51F5</string>
+							<string>9489327E0F52245E00AB51F5</string>
 						</array>
 						<key>prevStack</key>
 						<array>
@@ -457,6 +475,7 @@
 								<string>080E96DDFE201D6D7F000001</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
+								<string>1DDD58140DA1D0A300B32029</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>1058C7A0FEA54F0111CA2CBB</string>
 								<string>1058C7A2FEA54F0111CA2CBB</string>
@@ -518,7 +537,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>948932540F52209D00AB51F5</string>
+										<string>948932AE0F52266100AB51F5</string>
 										<key>history</key>
 										<array>
 											<string>9419212B0E94A92A00DDB01C</string>
@@ -732,12 +751,12 @@
 		<string>9489308A0F52051200AB51F5</string>
 		<string>9489308B0F52051200AB51F5</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>9419213C0E94A92A00DDB01C</string>
 		<string>9419213F0E94A92A00DDB01C</string>
+		<string>9419213C0E94A92A00DDB01C</string>
 		<string>948931600F5212EF00AB51F5</string>
 		<string>/Volumes/Data/Users/ryan/Development/EvernoteFSApp/EvernoteFSApp.xcodeproj</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>941921360E94A92A00DDB01C</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>236 302 437 502 0 0 1440 878 </string>
@@ -1078,7 +1097,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {898, 695}}</string>
 								<key>RubberWindowFrame</key>
-								<string>120 103 898 736 0 0 1440 878 </string>
+								<string>286 101 898 736 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -1107,7 +1126,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>120 103 898 736 0 0 1440 878 </string>
+			<string>286 101 898 736 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>

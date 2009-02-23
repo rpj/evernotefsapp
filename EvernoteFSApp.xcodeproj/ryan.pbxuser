@@ -489,6 +489,64 @@
 			948932590F52209D00AB51F5 /* PBXTextBookmark */ = 948932590F52209D00AB51F5 /* PBXTextBookmark */;
 			9489325A0F52209D00AB51F5 /* PBXTextBookmark */ = 9489325A0F52209D00AB51F5 /* PBXTextBookmark */;
 			9489325B0F52209D00AB51F5 /* PBXTextBookmark */ = 9489325B0F52209D00AB51F5 /* PBXTextBookmark */;
+			948932650F5223FF00AB51F5 /* PBXTextBookmark */ = 948932650F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932660F5223FF00AB51F5 /* PBXTextBookmark */ = 948932660F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932670F5223FF00AB51F5 /* PBXTextBookmark */ = 948932670F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932680F5223FF00AB51F5 /* PBXTextBookmark */ = 948932680F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932690F5223FF00AB51F5 /* PBXTextBookmark */ = 948932690F5223FF00AB51F5 /* PBXTextBookmark */;
+			9489326A0F5223FF00AB51F5 /* PBXTextBookmark */ = 9489326A0F5223FF00AB51F5 /* PBXTextBookmark */;
+			9489326B0F5223FF00AB51F5 /* PBXTextBookmark */ = 9489326B0F5223FF00AB51F5 /* PBXTextBookmark */;
+			9489326C0F5223FF00AB51F5 /* PBXTextBookmark */ = 9489326C0F5223FF00AB51F5 /* PBXTextBookmark */;
+			9489326D0F5223FF00AB51F5 /* PBXTextBookmark */ = 9489326D0F5223FF00AB51F5 /* PBXTextBookmark */;
+			9489326E0F5223FF00AB51F5 /* PBXTextBookmark */ = 9489326E0F5223FF00AB51F5 /* PBXTextBookmark */;
+			9489326F0F5223FF00AB51F5 /* PBXTextBookmark */ = 9489326F0F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932700F5223FF00AB51F5 /* PBXTextBookmark */ = 948932700F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932710F5223FF00AB51F5 /* PBXTextBookmark */ = 948932710F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932720F5223FF00AB51F5 /* PBXTextBookmark */ = 948932720F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932730F5223FF00AB51F5 /* PBXTextBookmark */ = 948932730F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932740F5223FF00AB51F5 /* PBXTextBookmark */ = 948932740F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932750F5223FF00AB51F5 /* PBXTextBookmark */ = 948932750F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932760F5223FF00AB51F5 /* PBXTextBookmark */ = 948932760F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932770F5223FF00AB51F5 /* PBXTextBookmark */ = 948932770F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932780F5223FF00AB51F5 /* PBXTextBookmark */ = 948932780F5223FF00AB51F5 /* PBXTextBookmark */;
+			948932790F5223FF00AB51F5 /* PBXTextBookmark */ = 948932790F5223FF00AB51F5 /* PBXTextBookmark */;
+			9489327A0F5223FF00AB51F5 /* PBXTextBookmark */ = 9489327A0F5223FF00AB51F5 /* PBXTextBookmark */;
+			9489327D0F52245E00AB51F5 /* PBXTextBookmark */ = 9489327D0F52245E00AB51F5 /* PBXTextBookmark */;
+			9489327E0F52245E00AB51F5 /* PBXTextBookmark */ = 9489327E0F52245E00AB51F5 /* PBXTextBookmark */;
+			9489327F0F52245E00AB51F5 /* PBXTextBookmark */ = 9489327F0F52245E00AB51F5 /* PBXTextBookmark */;
+			948932800F52245E00AB51F5 /* PBXTextBookmark */ = 948932800F52245E00AB51F5 /* PBXTextBookmark */;
+			948932810F52245E00AB51F5 /* PBXTextBookmark */ = 948932810F52245E00AB51F5 /* PBXTextBookmark */;
+			948932820F5224CA00AB51F5 /* PBXTextBookmark */ = 948932820F5224CA00AB51F5 /* PBXTextBookmark */;
+			948932830F5224CA00AB51F5 /* PBXTextBookmark */ = 948932830F5224CA00AB51F5 /* PBXTextBookmark */;
+			948932840F5224CA00AB51F5 /* PBXTextBookmark */ = 948932840F5224CA00AB51F5 /* PBXTextBookmark */;
+			948932850F5224CA00AB51F5 /* PBXTextBookmark */ = 948932850F5224CA00AB51F5 /* PBXTextBookmark */;
+			948932860F5224CA00AB51F5 /* PBXTextBookmark */ = 948932860F5224CA00AB51F5 /* PBXTextBookmark */;
+			948932870F5224CA00AB51F5 /* PBXTextBookmark */ = 948932870F5224CA00AB51F5 /* PBXTextBookmark */;
+			948932880F5224CA00AB51F5 /* PBXTextBookmark */ = 948932880F5224CA00AB51F5 /* PBXTextBookmark */;
+			948932890F5224CA00AB51F5 /* PBXTextBookmark */ = 948932890F5224CA00AB51F5 /* PBXTextBookmark */;
+			9489328A0F5224CA00AB51F5 /* PBXTextBookmark */ = 9489328A0F5224CA00AB51F5 /* PBXTextBookmark */;
+			9489328B0F5224CA00AB51F5 /* PBXTextBookmark */ = 9489328B0F5224CA00AB51F5 /* PBXTextBookmark */;
+			948932900F52251D00AB51F5 /* PBXTextBookmark */ = 948932900F52251D00AB51F5 /* PBXTextBookmark */;
+			948932910F52251D00AB51F5 /* PBXTextBookmark */ = 948932910F52251D00AB51F5 /* PBXTextBookmark */;
+			948932920F52251D00AB51F5 /* PBXTextBookmark */ = 948932920F52251D00AB51F5 /* PBXTextBookmark */;
+			948932930F52251D00AB51F5 /* PBXTextBookmark */ = 948932930F52251D00AB51F5 /* PBXTextBookmark */;
+			9489329B0F5225A400AB51F5 /* PBXTextBookmark */ = 9489329B0F5225A400AB51F5 /* PBXTextBookmark */;
+			9489329C0F5225A400AB51F5 /* PBXTextBookmark */ = 9489329C0F5225A400AB51F5 /* PBXTextBookmark */;
+			9489329D0F5225A400AB51F5 /* PBXTextBookmark */ = 9489329D0F5225A400AB51F5 /* PBXTextBookmark */;
+			9489329E0F5225A400AB51F5 /* PBXTextBookmark */ = 9489329E0F5225A400AB51F5 /* PBXTextBookmark */;
+			948932A30F52260C00AB51F5 /* PBXTextBookmark */ = 948932A30F52260C00AB51F5 /* PBXTextBookmark */;
+			948932A40F52260C00AB51F5 /* PBXTextBookmark */ = 948932A40F52260C00AB51F5 /* PBXTextBookmark */;
+			948932A50F52260C00AB51F5 /* PBXTextBookmark */ = 948932A50F52260C00AB51F5 /* PBXTextBookmark */;
+			948932A60F52260C00AB51F5 /* PBXTextBookmark */ = 948932A60F52260C00AB51F5 /* PBXTextBookmark */;
+			948932A80F52264500AB51F5 /* PBXTextBookmark */ = 948932A80F52264500AB51F5 /* PBXTextBookmark */;
+			948932A90F52264500AB51F5 /* PBXTextBookmark */ = 948932A90F52264500AB51F5 /* PBXTextBookmark */;
+			948932AA0F52264500AB51F5 /* PBXTextBookmark */ = 948932AA0F52264500AB51F5 /* PBXTextBookmark */;
+			948932AB0F52264500AB51F5 /* PBXTextBookmark */ = 948932AB0F52264500AB51F5 /* PBXTextBookmark */;
+			948932AC0F52265C00AB51F5 /* PBXTextBookmark */ = 948932AC0F52265C00AB51F5 /* PBXTextBookmark */;
+			948932AE0F52266100AB51F5 /* PBXTextBookmark */ = 948932AE0F52266100AB51F5 /* PBXTextBookmark */;
+			948932AF0F52266100AB51F5 /* PBXTextBookmark */ = 948932AF0F52266100AB51F5 /* PBXTextBookmark */;
+			948932B00F52266100AB51F5 /* PBXTextBookmark */ = 948932B00F52266100AB51F5 /* PBXTextBookmark */;
+			948932B10F52266100AB51F5 /* PBXTextBookmark */ = 948932B10F52266100AB51F5 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 941920E70E94A7CA00DDB01C /* Source Control */;
 		userBuildSettings = {
@@ -562,8 +620,8 @@
 	941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {847, 1512}}";
-			sepNavSelRange = "{3682, 0}";
-			sepNavVisRange = "{1936, 1889}";
+			sepNavSelRange = "{2407, 29}";
+			sepNavVisRange = "{136, 2109}";
 			sepNavWindowFrame = "{{149, 10}, {894, 868}}";
 		};
 	};
@@ -574,15 +632,15 @@
 	9419211F0E94A86B00DDB01C /* EvernoteFSController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {847, 755}}";
-			sepNavSelRange = "{548, 0}";
-			sepNavVisRange = "{0, 593}";
+			sepNavSelRange = "{619, 0}";
+			sepNavVisRange = "{0, 625}";
 		};
 	};
 	941921200E94A86B00DDB01C /* EvernoteFSController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {847, 1512}}";
-			sepNavSelRange = "{2076, 0}";
-			sepNavVisRange = "{784, 1758}";
+			sepNavIntBoundsRect = "{{0, 0}, {847, 1988}}";
+			sepNavSelRange = "{2268, 0}";
+			sepNavVisRange = "{743, 1803}";
 			sepNavWindowFrame = "{{490, 10}, {894, 868}}";
 		};
 	};
@@ -611,7 +669,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 15";
 		rLen = 0;
-		rLoc = 3625;
+		rLoc = 4620;
 		rType = 0;
 		vrLen = 341;
 		vrLoc = 0;
@@ -631,7 +689,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 18";
 		rLen = 0;
-		rLoc = 3611;
+		rLoc = 4587;
 		rType = 0;
 		vrLen = 425;
 		vrLoc = 0;
@@ -651,7 +709,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 16";
 		rLen = 0;
-		rLoc = 3441;
+		rLoc = 4417;
 		rType = 0;
 		vrLen = 535;
 		vrLoc = 0;
@@ -661,7 +719,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 16";
 		rLen = 0;
-		rLoc = 3441;
+		rLoc = 4417;
 		rType = 0;
 		vrLen = 535;
 		vrLoc = 0;
@@ -689,15 +747,15 @@
 	9419217C0E95730700DDB01C /* EvernoteConnection.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {914, 722}}";
-			sepNavSelRange = "{410, 23}";
-			sepNavVisRange = "{0, 439}";
+			sepNavSelRange = "{361, 0}";
+			sepNavVisRange = "{0, 495}";
 		};
 	};
 	9419217D0E95730700DDB01C /* EvernoteConnection.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {914, 966}}";
-			sepNavSelRange = "{1952, 0}";
-			sepNavVisRange = "{222, 1895}";
+			sepNavIntBoundsRect = "{{0, 0}, {914, 1078}}";
+			sepNavSelRange = "{1946, 0}";
+			sepNavVisRange = "{810, 1585}";
 		};
 	};
 	941921800E95731100DDB01C /* PBXTextBookmark */ = {
@@ -705,7 +763,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 15";
 		rLen = 0;
-		rLoc = 3434;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -725,7 +783,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 15";
 		rLen = 0;
-		rLoc = 3434;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -755,7 +813,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 21";
 		rLen = 0;
-		rLoc = 3625;
+		rLoc = 4620;
 		rType = 0;
 		vrLen = 535;
 		vrLoc = 0;
@@ -775,7 +833,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 21";
 		rLen = 0;
-		rLoc = 3625;
+		rLoc = 4620;
 		rType = 0;
 		vrLen = 535;
 		vrLoc = 0;
@@ -815,7 +873,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 21";
 		rLen = 0;
-		rLoc = 3625;
+		rLoc = 4620;
 		rType = 0;
 		vrLen = 535;
 		vrLoc = 0;
@@ -878,9 +936,9 @@
 	};
 	94892FB00F52004200AB51F5 /* UserStore.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {831, 22932}}";
-			sepNavSelRange = "{276, 39}";
-			sepNavVisRange = "{0, 1188}";
+			sepNavIntBoundsRect = "{{0, 0}, {831, 23646}}";
+			sepNavSelRange = "{2259, 8}";
+			sepNavVisRange = "{1484, 1058}";
 			sepNavWindowFrame = "{{15, -1}, {878, 874}}";
 		};
 	};
@@ -925,7 +983,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 21";
 		rLen = 0;
-		rLoc = 3625;
+		rLoc = 4620;
 		rType = 0;
 		vrLen = 535;
 		vrLoc = 0;
@@ -1147,7 +1205,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 19";
 		rLen = 0;
-		rLoc = 3434;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 790;
 		vrLoc = 0;
@@ -1157,7 +1215,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 19";
 		rLen = 0;
-		rLoc = 3434;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 790;
 		vrLoc = 0;
@@ -1334,7 +1392,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 24";
 		rLen = 0;
-		rLoc = 3434;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 919;
 		vrLoc = 0;
@@ -1384,7 +1442,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 24";
 		rLen = 0;
-		rLoc = 3434;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 919;
 		vrLoc = 0;
@@ -1404,7 +1462,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 33";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 1057;
 		vrLoc = 0;
@@ -1511,7 +1569,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 42";
 		rLen = 0;
-		rLoc = 3651;
+		rLoc = 4646;
 		rType = 0;
 		vrLen = 1172;
 		vrLoc = 0;
@@ -1601,7 +1659,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 27";
 		rLen = 0;
-		rLoc = 3434;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1148;
 		vrLoc = 0;
@@ -1755,7 +1813,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 21";
 		rLen = 0;
-		rLoc = 3305;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1218;
 		vrLoc = 0;
@@ -1853,7 +1911,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 21";
 		rLen = 0;
-		rLoc = 3305;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1218;
 		vrLoc = 0;
@@ -1923,7 +1981,7 @@
 		comments = "error: ‘EDAM_VERSION_MAJOR’ undeclared (first use in this function)";
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		rLen = 0;
-		rLoc = 69;
+		rLoc = 128;
 		rType = 1;
 	};
 	948930A00F5206C900AB51F5 /* PBXTextBookmark */ = {
@@ -1941,7 +1999,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 29";
 		rLen = 0;
-		rLoc = 3305;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1291;
 		vrLoc = 0;
@@ -2038,7 +2096,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 32";
 		rLen = 0;
-		rLoc = 3434;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1371;
 		vrLoc = 0;
@@ -2128,7 +2186,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 33";
 		rLen = 0;
-		rLoc = 3434;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1454;
 		vrLoc = 0;
@@ -2228,7 +2286,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 33";
 		rLen = 0;
-		rLoc = 3434;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1454;
 		vrLoc = 0;
@@ -2238,7 +2296,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 33";
 		rLen = 0;
-		rLoc = 3434;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1454;
 		vrLoc = 0;
@@ -2258,7 +2316,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 40";
 		rLen = 0;
-		rLoc = 3434;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1763;
 		vrLoc = 0;
@@ -2345,7 +2403,7 @@
 		comments = "warning: unused variable ‘uinfo’";
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		rLen = 0;
-		rLoc = 69;
+		rLoc = 128;
 		rType = 1;
 	};
 	948930DF0F5209D200AB51F5 /* PBXTextBookmark */ = {
@@ -2363,7 +2421,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 34";
 		rLen = 0;
-		rLoc = 3305;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1641;
 		vrLoc = 0;
@@ -2540,7 +2598,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 34";
 		rLen = 0;
-		rLoc = 3305;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1621;
 		vrLoc = 51;
@@ -2620,7 +2678,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 34";
 		rLen = 0;
-		rLoc = 3305;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1621;
 		vrLoc = 51;
@@ -2690,7 +2748,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 34";
 		rLen = 0;
-		rLoc = 3305;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1621;
 		vrLoc = 51;
@@ -2700,7 +2758,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 34";
 		rLen = 0;
-		rLoc = 3305;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1621;
 		vrLoc = 51;
@@ -2857,7 +2915,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 21";
 		rLen = 0;
-		rLoc = 2263;
+		rLoc = 4313;
 		rType = 0;
 		vrLen = 1625;
 		vrLoc = 0;
@@ -2867,7 +2925,7 @@
 		fRef = 9419211F0E94A86B00DDB01C /* EvernoteFSController.h */;
 		name = "EvernoteFSController.h: 19";
 		rLen = 0;
-		rLoc = 587;
+		rLoc = 619;
 		rType = 0;
 		vrLen = 393;
 		vrLoc = 0;
@@ -2877,7 +2935,7 @@
 		fRef = 9419211F0E94A86B00DDB01C /* EvernoteFSController.h */;
 		name = "EvernoteFSController.h: 19";
 		rLen = 0;
-		rLoc = 587;
+		rLoc = 619;
 		rType = 0;
 		vrLen = 393;
 		vrLoc = 0;
@@ -2887,7 +2945,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 21";
 		rLen = 0;
-		rLoc = 2263;
+		rLoc = 4313;
 		rType = 0;
 		vrLen = 1625;
 		vrLoc = 0;
@@ -2967,7 +3025,7 @@
 		comments = "error: ‘_userStoreClient’ undeclared (first use in this function)";
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		rLen = 0;
-		rLoc = 104;
+		rLoc = 134;
 		rType = 1;
 	};
 	9489314F0F5212EF00AB51F5 /* PBXTextBookmark */ = {
@@ -2985,7 +3043,7 @@
 		comments = "error: ‘_userStoreClient’ undeclared (first use in this function)";
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		rLen = 0;
-		rLoc = 104;
+		rLoc = 134;
 		rType = 1;
 	};
 	948931510F5212EF00AB51F5 /* PBXTextBookmark */ = {
@@ -3003,7 +3061,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 27";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -3023,7 +3081,7 @@
 		fRef = 9419211F0E94A86B00DDB01C /* EvernoteFSController.h */;
 		name = "EvernoteFSController.h: 21";
 		rLen = 0;
-		rLoc = 587;
+		rLoc = 619;
 		rType = 0;
 		vrLen = 433;
 		vrLoc = 0;
@@ -3033,7 +3091,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 21";
 		rLen = 0;
-		rLoc = 3305;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1641;
 		vrLoc = 0;
@@ -3052,8 +3110,8 @@
 		isa = PBXTextBookmark;
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 13";
-		rLen = 129;
-		rLoc = 3305;
+		rLen = 0;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1495;
 		vrLoc = 0;
@@ -3073,7 +3131,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 14";
 		rLen = 0;
-		rLoc = 3305;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 668;
 		vrLoc = 0;
@@ -3093,7 +3151,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 27";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 768;
 		vrLoc = 0;
@@ -3143,7 +3201,7 @@
 		fRef = 9419217C0E95730700DDB01C /* EvernoteConnection.h */;
 		name = "EvernoteConnection.h: 20";
 		rLen = 23;
-		rLoc = 407;
+		rLoc = 441;
 		rType = 0;
 		vrLen = 439;
 		vrLoc = 0;
@@ -3163,7 +3221,7 @@
 		fRef = 9419217C0E95730700DDB01C /* EvernoteConnection.h */;
 		name = "EvernoteConnection.h: 16";
 		rLen = 77;
-		rLoc = 330;
+		rLoc = 364;
 		rType = 0;
 		vrLen = 370;
 		vrLoc = 0;
@@ -3183,7 +3241,7 @@
 		fRef = 9419217C0E95730700DDB01C /* EvernoteConnection.h */;
 		name = "EvernoteConnection.h: 20";
 		rLen = 0;
-		rLoc = 430;
+		rLoc = 489;
 		rType = 0;
 		vrLen = 416;
 		vrLoc = 0;
@@ -3203,7 +3261,7 @@
 		fRef = 9419217C0E95730700DDB01C /* EvernoteConnection.h */;
 		name = "EvernoteConnection.h: 20";
 		rLen = 23;
-		rLoc = 407;
+		rLoc = 441;
 		rType = 0;
 		vrLen = 439;
 		vrLoc = 0;
@@ -3213,7 +3271,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 59";
 		rLen = 0;
-		rLoc = 2116;
+		rLoc = 2369;
 		rType = 0;
 		vrLen = 1578;
 		vrLoc = 0;
@@ -3223,7 +3281,7 @@
 		comments = "warning: passing argument 1 of ‘NSLog’ from incompatible pointer type";
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		rLen = 0;
-		rLoc = 90;
+		rLoc = 128;
 		rType = 1;
 	};
 	948931730F52133F00AB51F5 /* PBXTextBookmark */ = {
@@ -3231,7 +3289,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 31";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -3241,7 +3299,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 21";
 		rLen = 0;
-		rLoc = 3246;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 851;
 		vrLoc = 0;
@@ -3291,7 +3349,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 59";
 		rLen = 0;
-		rLoc = 2116;
+		rLoc = 2369;
 		rType = 0;
 		vrLen = 1578;
 		vrLoc = 0;
@@ -3301,7 +3359,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 31";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -3311,7 +3369,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 17";
 		rLen = 0;
-		rLoc = 2838;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 851;
 		vrLoc = 0;
@@ -3361,7 +3419,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 59";
 		rLen = 0;
-		rLoc = 2116;
+		rLoc = 2369;
 		rType = 0;
 		vrLen = 1578;
 		vrLoc = 0;
@@ -3371,7 +3429,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 52";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -3381,7 +3439,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 17";
 		rLen = 0;
-		rLoc = 2838;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 851;
 		vrLoc = 0;
@@ -3391,7 +3449,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 42";
 		rLen = 0;
-		rLoc = 3302;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1578;
 		vrLoc = 0;
@@ -3441,7 +3499,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 59";
 		rLen = 0;
-		rLoc = 2116;
+		rLoc = 2369;
 		rType = 0;
 		vrLen = 1578;
 		vrLoc = 0;
@@ -3451,7 +3509,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 52";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -3461,7 +3519,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1604;
 		vrLoc = 3;
@@ -3471,7 +3529,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 42";
 		rLen = 0;
-		rLoc = 3302;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1578;
 		vrLoc = 0;
@@ -3521,7 +3579,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 52";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -3531,7 +3589,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1604;
 		vrLoc = 3;
@@ -3541,7 +3599,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 42";
 		rLen = 0;
-		rLoc = 3302;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1578;
 		vrLoc = 0;
@@ -3591,7 +3649,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 52";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -3601,7 +3659,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 42";
 		rLen = 0;
-		rLoc = 3302;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1578;
 		vrLoc = 0;
@@ -3611,7 +3669,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 42";
 		rLen = 0;
-		rLoc = 3302;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1578;
 		vrLoc = 0;
@@ -3621,7 +3679,7 @@
 		fRef = 9419211F0E94A86B00DDB01C /* EvernoteFSController.h */;
 		name = "EvernoteFSController.h: 24";
 		rLen = 0;
-		rLoc = 587;
+		rLoc = 619;
 		rType = 0;
 		vrLen = 526;
 		vrLoc = 0;
@@ -3631,7 +3689,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1604;
 		vrLoc = 3;
@@ -3681,7 +3739,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 55";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -3690,7 +3748,7 @@
 		isa = PBXTextBookmark;
 		fRef = 9419211F0E94A86B00DDB01C /* EvernoteFSController.h */;
 		name = "EvernoteFSController.h: 23";
-		rLen = 39;
+		rLen = 71;
 		rLoc = 549;
 		rType = 0;
 		vrLen = 526;
@@ -3700,7 +3758,7 @@
 		isa = PBXTextBookmark;
 		fRef = 9419211F0E94A86B00DDB01C /* EvernoteFSController.h */;
 		name = "EvernoteFSController.h: 23";
-		rLen = 39;
+		rLen = 71;
 		rLoc = 549;
 		rType = 0;
 		vrLen = 526;
@@ -3711,7 +3769,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 19";
 		rLen = 0;
-		rLoc = 2263;
+		rLoc = 4313;
 		rType = 0;
 		vrLen = 1562;
 		vrLoc = 48;
@@ -3721,7 +3779,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1604;
 		vrLoc = 3;
@@ -3771,7 +3829,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 55";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -3791,7 +3849,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 17";
 		rLen = 37;
-		rLoc = 664;
+		rLoc = 839;
 		rType = 0;
 		vrLen = 1573;
 		vrLoc = 48;
@@ -3801,7 +3859,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 17";
 		rLen = 37;
-		rLoc = 664;
+		rLoc = 839;
 		rType = 0;
 		vrLen = 1573;
 		vrLoc = 48;
@@ -3821,7 +3879,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 17";
 		rLen = 37;
-		rLoc = 664;
+		rLoc = 839;
 		rType = 0;
 		vrLen = 1573;
 		vrLoc = 48;
@@ -3831,7 +3889,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1604;
 		vrLoc = 3;
@@ -3881,7 +3939,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 77";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -3901,7 +3959,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 43";
 		rLen = 0;
-		rLoc = 3246;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1699;
 		vrLoc = 150;
@@ -3911,7 +3969,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 18";
 		rLen = 0;
-		rLoc = 2180;
+		rLoc = 2548;
 		rType = 0;
 		vrLen = 1598;
 		vrLoc = 48;
@@ -3931,7 +3989,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 43";
 		rLen = 0;
-		rLoc = 3246;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1699;
 		vrLoc = 150;
@@ -3951,7 +4009,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 32";
 		rLen = 0;
-		rLoc = 2080;
+		rLoc = 2448;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 792;
@@ -3961,7 +4019,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1497;
 		vrLoc = 202;
@@ -4011,7 +4069,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 76";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -4021,7 +4079,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 75";
 		rLen = 0;
-		rLoc = 3606;
+		rLoc = 4582;
 		rType = 0;
 		vrLen = 1619;
 		vrLoc = 0;
@@ -4031,7 +4089,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1497;
 		vrLoc = 202;
@@ -4081,7 +4139,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 76";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 439;
 		vrLoc = 205;
@@ -4091,7 +4149,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 76";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -4111,7 +4169,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1519;
 		vrLoc = 177;
@@ -4161,7 +4219,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 94";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -4171,7 +4229,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 79";
 		rLen = 0;
-		rLoc = 3139;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1728;
 		vrLoc = 1208;
@@ -4181,7 +4239,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1519;
 		vrLoc = 177;
@@ -4231,7 +4289,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 94";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -4241,7 +4299,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 79";
 		rLen = 0;
-		rLoc = 3139;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1720;
 		vrLoc = 1208;
@@ -4251,7 +4309,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1519;
 		vrLoc = 177;
@@ -4301,7 +4359,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 97";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -4311,7 +4369,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 49";
 		rLen = 0;
-		rLoc = 1970;
+		rLoc = 2338;
 		rType = 0;
 		vrLen = 1727;
 		vrLoc = 290;
@@ -4321,7 +4379,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1519;
 		vrLoc = 177;
@@ -4371,7 +4429,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 100";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -4381,7 +4439,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 49";
 		rLen = 0;
-		rLoc = 1970;
+		rLoc = 2338;
 		rType = 0;
 		vrLen = 1659;
 		vrLoc = 386;
@@ -4391,7 +4449,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1519;
 		vrLoc = 177;
@@ -4441,7 +4499,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 99";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -4451,7 +4509,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 84";
 		rLen = 0;
-		rLoc = 3237;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1558;
 		vrLoc = 1443;
@@ -4461,7 +4519,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1519;
 		vrLoc = 177;
@@ -4511,7 +4569,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 99";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -4521,7 +4579,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 84";
 		rLen = 0;
-		rLoc = 3237;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1558;
 		vrLoc = 1443;
@@ -4531,7 +4589,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 84";
 		rLen = 0;
-		rLoc = 3237;
+		rLoc = 4415;
 		rType = 0;
 		vrLen = 1558;
 		vrLoc = 1443;
@@ -4551,7 +4609,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1519;
 		vrLoc = 177;
@@ -4601,7 +4659,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 99";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -4631,7 +4689,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 47";
 		rLen = 0;
-		rLoc = 1841;
+		rLoc = 2100;
 		rType = 0;
 		vrLen = 1939;
 		vrLoc = 690;
@@ -4641,7 +4699,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 48";
 		rLen = 0;
-		rLoc = 1871;
+		rLoc = 1911;
 		rType = 0;
 		vrLen = 1519;
 		vrLoc = 177;
@@ -4691,7 +4749,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 104";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -4731,7 +4789,7 @@
 		comments = "error: syntax error at ‘OTHER’ token";
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		rLen = 1;
-		rLoc = 48;
+		rLoc = 58;
 		rType = 1;
 	};
 	948932450F521FCF00AB51F5 /* PBXTextBookmark */ = {
@@ -4739,7 +4797,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 104";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -4749,7 +4807,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 49";
 		rLen = 0;
-		rLoc = 1795;
+		rLoc = 2054;
 		rType = 0;
 		vrLen = 1893;
 		vrLoc = 237;
@@ -4779,7 +4837,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 104";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -4796,7 +4854,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 57";
 		rLen = 0;
-		rLoc = 1952;
+		rLoc = 1946;
 		rType = 0;
 		vrLen = 1895;
 		vrLoc = 222;
@@ -4806,7 +4864,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 29";
 		rLen = 12;
-		rLoc = 945;
+		rLoc = 1120;
 		rType = 0;
 		vrLen = 1833;
 		vrLoc = 744;
@@ -4826,7 +4884,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 105";
 		rLen = 0;
-		rLoc = 3623;
+		rLoc = 4618;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -4846,7 +4904,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 29";
 		rLen = 12;
-		rLoc = 945;
+		rLoc = 1120;
 		rType = 0;
 		vrLen = 1882;
 		vrLoc = 784;
@@ -4856,7 +4914,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 29";
 		rLen = 12;
-		rLoc = 945;
+		rLoc = 1120;
 		rType = 0;
 		vrLen = 1882;
 		vrLoc = 784;
@@ -4876,7 +4934,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 59";
 		rLen = 0;
-		rLoc = 2076;
+		rLoc = 2444;
 		rType = 0;
 		vrLen = 1758;
 		vrLoc = 784;
@@ -4886,7 +4944,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 57";
 		rLen = 0;
-		rLoc = 1952;
+		rLoc = 1946;
 		rType = 0;
 		vrLen = 1895;
 		vrLoc = 222;
@@ -4900,5 +4958,582 @@
 		rType = 0;
 		vrLen = 1889;
 		vrLoc = 1936;
+	};
+	948932650F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 126";
+		rLen = 0;
+		rLoc = 4618;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	948932660F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419211F0E94A86B00DDB01C /* EvernoteFSController.h */;
+		name = "EvernoteFSController.h: 25";
+		rLen = 0;
+		rLoc = 548;
+		rType = 0;
+		vrLen = 593;
+		vrLoc = 0;
+	};
+	948932670F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 49";
+		rLen = 0;
+		rLoc = 2031;
+		rType = 0;
+		vrLen = 1677;
+		vrLoc = 2064;
+	};
+	948932680F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 49";
+		rLen = 0;
+		rLoc = 2031;
+		rType = 0;
+		vrLen = 1677;
+		vrLoc = 2064;
+	};
+	948932690F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419211F0E94A86B00DDB01C /* EvernoteFSController.h */;
+		name = "EvernoteFSController.h: 25";
+		rLen = 0;
+		rLoc = 548;
+		rType = 0;
+		vrLen = 593;
+		vrLoc = 0;
+	};
+	9489326A0F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 120";
+		rLen = 0;
+		rLoc = 4415;
+		rType = 0;
+		vrLen = 1889;
+		vrLoc = 2442;
+	};
+	9489326B0F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217C0E95730700DDB01C /* EvernoteConnection.h */;
+		name = "EvernoteConnection.h: 18";
+		rLen = 0;
+		rLoc = 361;
+		rType = 0;
+		vrLen = 495;
+		vrLoc = 0;
+	};
+	9489326C0F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 48";
+		rLen = 35;
+		rLoc = 1694;
+		rType = 0;
+		vrLen = 1889;
+		vrLoc = 350;
+	};
+	9489326D0F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 57";
+		rLen = 0;
+		rLoc = 1946;
+		rType = 0;
+		vrLen = 1895;
+		vrLoc = 222;
+	};
+	9489326E0F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217C0E95730700DDB01C /* EvernoteConnection.h */;
+		name = "EvernoteConnection.h: 22";
+		rLen = 0;
+		rLoc = 489;
+		rType = 0;
+		vrLen = 460;
+		vrLoc = 0;
+	};
+	9489326F0F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 57";
+		rLen = 0;
+		rLoc = 1946;
+		rType = 0;
+		vrLen = 1792;
+		vrLoc = 350;
+	};
+	948932700F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217C0E95730700DDB01C /* EvernoteConnection.h */;
+		name = "EvernoteConnection.h: 19";
+		rLen = 0;
+		rLoc = 361;
+		rType = 0;
+		vrLen = 477;
+		vrLoc = 0;
+	};
+	948932710F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 58";
+		rLen = 0;
+		rLoc = 1961;
+		rType = 0;
+		vrLen = 1929;
+		vrLoc = 200;
+	};
+	948932720F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217C0E95730700DDB01C /* EvernoteConnection.h */;
+		name = "EvernoteConnection.h: 19";
+		rLen = 0;
+		rLoc = 361;
+		rType = 0;
+		vrLen = 477;
+		vrLoc = 0;
+	};
+	948932730F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 65";
+		rLen = 0;
+		rLoc = 2367;
+		rType = 0;
+		vrLen = 1781;
+		vrLoc = 402;
+	};
+	948932740F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217C0E95730700DDB01C /* EvernoteConnection.h */;
+		name = "EvernoteConnection.h: 24";
+		rLen = 24;
+		rLoc = 465;
+		rType = 0;
+		vrLen = 478;
+		vrLoc = 0;
+	};
+	948932750F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 47";
+		rLen = 0;
+		rLoc = 1729;
+		rType = 0;
+		vrLen = 1916;
+		vrLoc = 350;
+	};
+	948932760F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217C0E95730700DDB01C /* EvernoteConnection.h */;
+		name = "EvernoteConnection.h: 18";
+		rLen = 0;
+		rLoc = 361;
+		rType = 0;
+		vrLen = 495;
+		vrLoc = 0;
+	};
+	948932770F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 48";
+		rLen = 35;
+		rLoc = 1694;
+		rType = 0;
+		vrLen = 1889;
+		vrLoc = 350;
+	};
+	948932780F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217C0E95730700DDB01C /* EvernoteConnection.h */;
+		name = "EvernoteConnection.h: 18";
+		rLen = 0;
+		rLoc = 361;
+		rType = 0;
+		vrLen = 495;
+		vrLoc = 0;
+	};
+	948932790F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 73";
+		rLen = 0;
+		rLoc = 2367;
+		rType = 0;
+		vrLen = 1598;
+		vrLoc = 843;
+	};
+	9489327A0F5223FF00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */;
+		name = "EvernoteFUSE.m: 97";
+		rLen = 0;
+		rLoc = 3682;
+		rType = 0;
+		vrLen = 1889;
+		vrLoc = 1936;
+	};
+	9489327D0F52245E00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 127";
+		rLen = 0;
+		rLoc = 4618;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	9489327E0F52245E00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */;
+		rLen = 1;
+		rLoc = 67;
+		rType = 1;
+	};
+	9489327F0F52245E00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */;
+		name = "EvernoteFUSE.m: 68";
+		rLen = 29;
+		rLoc = 2407;
+		rType = 0;
+		vrLen = 2109;
+		vrLoc = 136;
+	};
+	948932800F52245E00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 111";
+		rLen = 0;
+		rLoc = 4415;
+		rType = 0;
+		vrLen = 1913;
+		vrLoc = 2340;
+	};
+	948932810F52245E00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 73";
+		rLen = 0;
+		rLoc = 2367;
+		rType = 0;
+		vrLen = 1598;
+		vrLoc = 843;
+	};
+	948932820F5224CA00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 135";
+		rLen = 0;
+		rLoc = 4618;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	948932830F5224CA00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419211F0E94A86B00DDB01C /* EvernoteFSController.h */;
+		name = "EvernoteFSController.h: 27";
+		rLen = 0;
+		rLoc = 619;
+		rType = 0;
+		vrLen = 625;
+		vrLoc = 0;
+	};
+	948932840F5224CA00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 64";
+		rLen = 0;
+		rLoc = 2309;
+		rType = 0;
+		vrLen = 1905;
+		vrLoc = 1266;
+	};
+	948932850F5224CA00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 79";
+		rLen = 30;
+		rLoc = 2632;
+		rType = 0;
+		vrLen = 1874;
+		vrLoc = 2206;
+	};
+	948932860F5224CA00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419211F0E94A86B00DDB01C /* EvernoteFSController.h */;
+		name = "EvernoteFSController.h: 27";
+		rLen = 0;
+		rLoc = 619;
+		rType = 0;
+		vrLen = 625;
+		vrLoc = 0;
+	};
+	948932870F5224CA00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 64";
+		rLen = 0;
+		rLoc = 2309;
+		rType = 0;
+		vrLen = 1905;
+		vrLoc = 1266;
+	};
+	948932880F5224CA00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419211F0E94A86B00DDB01C /* EvernoteFSController.h */;
+		name = "EvernoteFSController.h: 27";
+		rLen = 0;
+		rLoc = 619;
+		rType = 0;
+		vrLen = 625;
+		vrLoc = 0;
+	};
+	948932890F5224CA00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 129";
+		rLen = 0;
+		rLoc = 4415;
+		rType = 0;
+		vrLen = 1875;
+		vrLoc = 0;
+	};
+	9489328A0F5224CA00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */;
+		name = "EvernoteFUSE.m: 68";
+		rLen = 29;
+		rLoc = 2407;
+		rType = 0;
+		vrLen = 2109;
+		vrLoc = 136;
+	};
+	9489328B0F5224CA00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 73";
+		rLen = 0;
+		rLoc = 2367;
+		rType = 0;
+		vrLen = 1598;
+		vrLoc = 843;
+	};
+	948932900F52251D00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 136";
+		rLen = 0;
+		rLoc = 4618;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	948932910F52251D00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 57";
+		rLen = 0;
+		rLoc = 1946;
+		rType = 0;
+		vrLen = 1585;
+		vrLoc = 810;
+	};
+	948932920F52251D00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 64";
+		rLen = 0;
+		rLoc = 2268;
+		rType = 0;
+		vrLen = 1934;
+		vrLoc = 1658;
+	};
+	948932930F52251D00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */;
+		name = "EvernoteFUSE.m: 68";
+		rLen = 29;
+		rLoc = 2407;
+		rType = 0;
+		vrLen = 2109;
+		vrLoc = 136;
+	};
+	9489329B0F5225A400AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 136";
+		rLen = 0;
+		rLoc = 4618;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	9489329C0F5225A400AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 64";
+		rLen = 0;
+		rLoc = 2268;
+		rType = 0;
+		vrLen = 1803;
+		vrLoc = 743;
+	};
+	9489329D0F5225A400AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 57";
+		rLen = 0;
+		rLoc = 1946;
+		rType = 0;
+		vrLen = 1585;
+		vrLoc = 810;
+	};
+	9489329E0F5225A400AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */;
+		name = "EvernoteFUSE.m: 68";
+		rLen = 29;
+		rLoc = 2407;
+		rType = 0;
+		vrLen = 2109;
+		vrLoc = 136;
+	};
+	948932A30F52260C00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 136";
+		rLen = 0;
+		rLoc = 4618;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	948932A40F52260C00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 64";
+		rLen = 0;
+		rLoc = 2268;
+		rType = 0;
+		vrLen = 1803;
+		vrLoc = 743;
+	};
+	948932A50F52260C00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 57";
+		rLen = 0;
+		rLoc = 1946;
+		rType = 0;
+		vrLen = 1585;
+		vrLoc = 810;
+	};
+	948932A60F52260C00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */;
+		name = "EvernoteFUSE.m: 68";
+		rLen = 29;
+		rLoc = 2407;
+		rType = 0;
+		vrLen = 2109;
+		vrLoc = 136;
+	};
+	948932A80F52264500AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 136";
+		rLen = 0;
+		rLoc = 4618;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	948932A90F52264500AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 64";
+		rLen = 0;
+		rLoc = 2268;
+		rType = 0;
+		vrLen = 1803;
+		vrLoc = 743;
+	};
+	948932AA0F52264500AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 57";
+		rLen = 0;
+		rLoc = 1946;
+		rType = 0;
+		vrLen = 1585;
+		vrLoc = 810;
+	};
+	948932AB0F52264500AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */;
+		name = "EvernoteFUSE.m: 68";
+		rLen = 29;
+		rLoc = 2407;
+		rType = 0;
+		vrLen = 2109;
+		vrLoc = 136;
+	};
+	948932AC0F52265C00AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 136";
+		rLen = 0;
+		rLoc = 4618;
+		rType = 0;
+		vrLen = 503;
+		vrLoc = 205;
+	};
+	948932AE0F52266100AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 136";
+		rLen = 0;
+		rLoc = 4618;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	948932AF0F52266100AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
+		name = "EvernoteFSController.m: 64";
+		rLen = 0;
+		rLoc = 2268;
+		rType = 0;
+		vrLen = 1803;
+		vrLoc = 743;
+	};
+	948932B00F52266100AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
+		name = "EvernoteConnection.m: 57";
+		rLen = 0;
+		rLoc = 1946;
+		rType = 0;
+		vrLen = 1585;
+		vrLoc = 810;
+	};
+	948932B10F52266100AB51F5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */;
+		name = "EvernoteFUSE.m: 68";
+		rLen = 29;
+		rLoc = 2407;
+		rType = 0;
+		vrLen = 2109;
+		vrLoc = 136;
 	};
 }
