@@ -1,1 +1,3 @@
-MacFUSE-based Evernote filesystem.
+Requires MacFUSE, available from http://code.google.com/p/macfuse/.
+
+Currently requires an account on http://lb.evernote.com, Evernote's testing sandbox.
