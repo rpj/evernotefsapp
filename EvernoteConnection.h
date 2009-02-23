@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class EDAMUserStoreClient, EDAMUser;
+@class EDAMUserStoreClient, EDAMUser, EDAMNoteStoreClient, EDAMAccounting;
 
 @interface EvernoteConnection : NSObject {
 	NSString* _username;
@@ -16,6 +16,10 @@
 	
 	EDAMUserStoreClient* _userStoreClient;
 	EDAMUser* _authedUser;
+	NSString* _authToken;
+	
+	EDAMNoteStoreClient* _noteStoreClient;
+	EDAMAccounting* _accounting;
 }
 
 - (id) initWithUserName:(NSString*)username andPassword:(NSString*)password;
@@ -24,4 +28,7 @@
 - (NSString*) username;
 - (NSString*) name;
 - (NSString*) email;
+
+- (int64_t) accountSize;
+- (int64_t) uploadLimit;
 @end

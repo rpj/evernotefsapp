@@ -7,6 +7,7 @@
 //
 
 #import "EvernoteFUSE.h"
+#import "EvernoteConnection.h"
 
 #import <MacFUSE/GMUserFileSystem.h>
 
@@ -20,7 +21,7 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 
 // delegate methods
 - (NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error;
-//- (NSDictionary *)attributesOfFileSystemForPath:(NSString *)path error:(NSError **)error;
+- (NSDictionary *)attributesOfFileSystemForPath:(NSString *)path error:(NSError **)error;
 @end
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -37,7 +38,7 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 ///////////////////////////////////////////////////////////////////////////////
 - (void) didUnmount:(NSNotification*)notify;
 {
-	NSLog(@"someone unmounted us... trying to terminate lé app...");
+	NSLog(@"Unmounted by user: terminating.");
 	[[NSApplication sharedApplication] terminate:self];
 }
 
@@ -54,12 +55,30 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 	return [NSArray arrayWithObjects:@"There", @"Is", @"Nothing", @"To", @"See", @"Here", nil];
 }
 
-/*
 ///////////////////////////////////////////////////////////////////////////////
 - (NSDictionary *)attributesOfFileSystemForPath:(NSString *)path error:(NSError **)error;
 {
-	return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:(1024 * 1024 * 1)], @"NSFileSystemSize", nil];
-}*/
+	int64_t size = [_econn accountSize];
+	int64_t lim = [_econn uploadLimit];
+	
+	if (!_attrDict) {
+		_attrDict = [[NSMutableDictionary alloc] init];
+		
+		if (lim > 0 && size > 0 && lim > size) {			
+			NSLog(@"Account Size: %lld bytes", (int32_t)[_econn accountSize]);
+			NSLog(@"Upload Limit: %lld bytes", (int32_t)[_econn uploadLimit]);
+			
+			// this value will necessarily need be adjusted as the sync state changes (if we or
+			// other clients add or remove data).
+			[_attrDict setObject:[NSNumber numberWithInt:(lim - size)] forKey:@"NSFileSystemFreeSize"];
+			[_attrDict setObject:[NSNumber numberWithInt:lim] forKey:@"NSFileSystemSize"];
+		}
+		else {
+			NSLog(@"Bad values for size (%lld) or lim (%lld).", size, lim);
+		}
+	}
+	return (NSDictionary*)_attrDict;
+}
 @end
 
 
@@ -67,41 +86,91 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 ///////////////////////////////////////////////////////////////////////////////
 @implementation EvernoteFUSE
 ///////////////////////////////////////////////////////////////////////////////
-- (id) initWithVolumeName:(NSString*)volName;
+- (NSString*) volumeName;
 {
-	if ((self = [super init])) {
+	return _volName;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (void) setVolumeName:(NSString*)volName;
+{
+	[_volName release];
+	_volName = [volName retain];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (EvernoteConnection*) connection;
+{
+	return _econn;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (void) setConnection:(EvernoteConnection*)conn;
+{
+	[_econn release];
+	_econn = [conn retain];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (void) mount;
+{
+	if (_volName && _econn) {	
 		NSNotificationCenter* dCent = [NSNotificationCenter defaultCenter];
 		[dCent addObserver:self selector:@selector(didMount:) name:kGMUserFileSystemDidMount object:nil];
 		[dCent addObserver:self selector:@selector(didUnmount:) name:kGMUserFileSystemDidUnmount object:nil];
 		[dCent addObserver:self selector:@selector(mountFailed:) name:kGMUserFileSystemMountFailed object:nil];
 		
-		_fs = [[GMUserFileSystem alloc] initWithDelegate:self isThreadSafe:YES];
-		
 		NSMutableArray* options = [NSMutableArray array];
-		[options addObject:[NSString stringWithFormat:@"volname=%@", volName]];
+		[options addObject:[NSString stringWithFormat:@"volname=%@", _volName]];
 		[options addObject:[NSString stringWithFormat:@"volicon=%@",
 							[[NSBundle mainBundle] pathForResource:@"ytfs" ofType:@"icns"]]];
 		
-		[_fs mountAtPath:[NSString stringWithFormat:@"%@/%@", kMountPathPrefix, volName] withOptions:options];
+		[_fs mountAtPath:[NSString stringWithFormat:@"%@/%@", kMountPathPrefix, _volName] withOptions:options];
+	}
+	else {
+		NSLog(@"Must call setVolumeName: and setConnection: before mount.");
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (void) unmount;
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[_fs unmount];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (id) initWithVolumeName:(NSString*)volName andConnection:(EvernoteConnection*)conn;
+{
+	if ((self = [super init])) {
+		_fs = [[GMUserFileSystem alloc] initWithDelegate:self isThreadSafe:YES];
+		
+		if (conn) _econn = [conn retain];		
+		if (volName) _volName = [volName retain];
 	}
 	
 	return self;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+- (id) initWithVolumeName:(NSString*)volName;
+{
+	return [self initWithVolumeName:volName andConnection:nil];
+}
+
+///////////////////////////////////////////////////////////////////////////////
 - (id) init;
 {
-	return [self initWithVolumeName:@"Generic Evernote FS"];
+	return [self initWithVolumeName:nil andConnection:nil];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 - (void) dealloc;
 {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	
-	[_fs unmount];
+	[self unmount];
 	[_fs release];
-	
+	[_volName release];
+	[_econn release];
 	[super dealloc];
 }
 @end

@@ -85,14 +85,25 @@ static NSString* kUserDefUseFullNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.U
 
 ///////////////////////////////////////////////////////////////////////////////
 - (void) mountFuseFS {
-	if (_efs) [_efs release];
-	
-	NSString* volName = [NSString stringWithFormat:@"%@'s Evernote", 
-						 ([_useFullName state] == NSOnState) ? [_econn name] : [_econn username]];
-	[_info setStringValue:[NSString stringWithFormat:@"Account email: %@", [_econn email]]];
-	_efs = [[EvernoteFUSE alloc] initWithVolumeName:volName];
-	
-	NSLog(@"Built EvernoteFUSE \"%@\"", volName);
+	if (_econn) {
+		NSString* volName = [NSString stringWithFormat:@"%@'s Evernote", 
+							 ([_useFullName state] == NSOnState) ? [_econn name] : [_econn username]];
+		[_info setStringValue:[NSString stringWithFormat:@"Account email: %@", [_econn email]]];
+		
+		if (!_efs) {
+			_efs = [[EvernoteFUSE alloc] initWithVolumeName:volName andConnection:_econn];
+		}
+		else {
+			[_efs unmount];
+			[_efs setVolumeName:volName];
+		}
+		
+		NSLog(@"Built EvernoteFUSE \"%@\"", volName);
+		[_efs mount];
+	}
+	else {
+		NSLog(@"EvernoteConnection not yet setup: cannot mount!");
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -128,6 +139,11 @@ static NSString* kUserDefUseFullNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.U
 					[_prefPanel makeKeyAndOrderFront:self];
 				}
 				else {
+					// FOR NOW, when a username/password combination is good, we don't allow a new one
+					// to be entered: related to the keychain bug referenced above.
+					[_username setEnabled:NO];
+					[_password setEnabled:NO];
+					[_verifyAccount setEnabled:NO];
 					[self mountFuseFS];
 				}
 			}

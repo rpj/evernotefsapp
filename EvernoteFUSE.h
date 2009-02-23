@@ -8,13 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
-@class GMUserFileSystem;
+@class GMUserFileSystem, EvernoteConnection;
 
 @interface EvernoteFUSE : NSObject {
-	GMUserFileSystem*	_fs;
-	NSString*			_volName;
+	GMUserFileSystem*		_fs;
+	EvernoteConnection*		_econn;
+	
+	NSString*				_volName;
+	NSMutableDictionary*	_attrDict;
 }
 
+- (id) initWithVolumeName:(NSString*)volName andConnection:(EvernoteConnection*)conn;
 - (id) initWithVolumeName:(NSString*)volName;
 
+- (NSString*) volumeName;
+- (void) setVolumeName:(NSString*)volName;
+
+- (EvernoteConnection*) connection;
+- (void) setConnection:(EvernoteConnection*)conn;
+
+- (void) mount;
+- (void) unmount;
 @end

@@ -80,38 +80,38 @@
 					PBXSymbolsDataSource_ReferenceNameID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 257110092;
-			PBXWorkspaceStateSaveDate = 257110092;
+			PBXPerProjectTemplateStateSaveDate = 257111869;
+			PBXWorkspaceStateSaveDate = 257111869;
 		};
 		perUserProjectItems = {
-			941539400F5330660047C05A /* PBXTextBookmark */ = 941539400F5330660047C05A /* PBXTextBookmark */;
-			941539410F5330660047C05A /* PBXTextBookmark */ = 941539410F5330660047C05A /* PBXTextBookmark */;
-			941539420F5330660047C05A /* PBXTextBookmark */ = 941539420F5330660047C05A /* PBXTextBookmark */;
-			941539430F5330660047C05A /* PBXTextBookmark */ = 941539430F5330660047C05A /* PBXTextBookmark */;
-			941539440F5330660047C05A /* PBXTextBookmark */ = 941539440F5330660047C05A /* PBXTextBookmark */;
-			9419212B0E94A92A00DDB01C /* PBXTextBookmark */ = 9419212B0E94A92A00DDB01C /* PBXTextBookmark */;
-			9419212D0E94A92A00DDB01C /* PBXTextBookmark */ = 9419212D0E94A92A00DDB01C /* PBXTextBookmark */;
-			9419212E0E94A92A00DDB01C /* PBXTextBookmark */ = 9419212E0E94A92A00DDB01C /* PBXTextBookmark */;
-			9419213A0E94A92A00DDB01C /* PBXTextBookmark */ = 9419213A0E94A92A00DDB01C /* PBXTextBookmark */;
-			9419215E0E94AA7500DDB01C /* PBXTextBookmark */ = 9419215E0E94AA7500DDB01C /* PBXTextBookmark */;
-			948930200F52031D00AB51F5 /* PBXTextBookmark */ = 948930200F52031D00AB51F5 /* PBXTextBookmark */;
-			948930220F52031D00AB51F5 /* PBXTextBookmark */ = 948930220F52031D00AB51F5 /* PBXTextBookmark */;
-			948930240F52031D00AB51F5 /* PBXTextBookmark */ = 948930240F52031D00AB51F5 /* PBXTextBookmark */;
-			948930260F52031D00AB51F5 /* PBXTextBookmark */ = 948930260F52031D00AB51F5 /* PBXTextBookmark */;
-			948930270F52031D00AB51F5 /* PBXTextBookmark */ = 948930270F52031D00AB51F5 /* PBXTextBookmark */;
-			948930E70F5209D200AB51F5 /* PBXTextBookmark */ = 948930E70F5209D200AB51F5 /* PBXTextBookmark */;
-			948930E80F5209D200AB51F5 /* PBXTextBookmark */ = 948930E80F5209D200AB51F5 /* PBXTextBookmark */;
-			9489311A0F520CE000AB51F5 /* PBXTextBookmark */ = 9489311A0F520CE000AB51F5 /* PBXTextBookmark */;
-			9489314F0F5212EF00AB51F5 /* PBXTextBookmark */ = 9489314F0F5212EF00AB51F5 /* PBXTextBookmark */;
-			948931640F5212EF00AB51F5 /* PBXTextBookmark */ = 948931640F5212EF00AB51F5 /* PBXTextBookmark */;
-			948931650F5212EF00AB51F5 /* PBXTextBookmark */ = 948931650F5212EF00AB51F5 /* PBXTextBookmark */;
-			948932CA0F52288A00AB51F5 /* PBXTextBookmark */ = 948932CA0F52288A00AB51F5 /* PBXTextBookmark */;
-			948933170F522AED00AB51F5 /* PBXTextBookmark */ = 948933170F522AED00AB51F5 /* PBXTextBookmark */;
-			948933180F522AED00AB51F5 /* PBXTextBookmark */ = 948933180F522AED00AB51F5 /* PBXTextBookmark */;
-			9489331C0F522AED00AB51F5 /* PBXTextBookmark */ = 9489331C0F522AED00AB51F5 /* PBXTextBookmark */;
-			9489331D0F522AED00AB51F5 /* PBXTextBookmark */ = 9489331D0F522AED00AB51F5 /* PBXTextBookmark */;
-			9489331E0F522AED00AB51F5 /* PBXTextBookmark */ = 9489331E0F522AED00AB51F5 /* PBXTextBookmark */;
-			9489331F0F522AED00AB51F5 /* PBXTextBookmark */ = 9489331F0F522AED00AB51F5 /* PBXTextBookmark */;
+			941539400F5330660047C05A = 941539400F5330660047C05A /* PBXTextBookmark */;
+			941539410F5330660047C05A = 941539410F5330660047C05A /* PBXTextBookmark */;
+			941539420F5330660047C05A = 941539420F5330660047C05A /* PBXTextBookmark */;
+			941539430F5330660047C05A = 941539430F5330660047C05A /* PBXTextBookmark */;
+			941539440F5330660047C05A = 941539440F5330660047C05A /* PBXTextBookmark */;
+			9419212B0E94A92A00DDB01C = 9419212B0E94A92A00DDB01C /* PBXTextBookmark */;
+			9419212D0E94A92A00DDB01C = 9419212D0E94A92A00DDB01C /* PBXTextBookmark */;
+			9419212E0E94A92A00DDB01C = 9419212E0E94A92A00DDB01C /* PBXTextBookmark */;
+			9419213A0E94A92A00DDB01C = 9419213A0E94A92A00DDB01C /* PBXTextBookmark */;
+			9419215E0E94AA7500DDB01C = 9419215E0E94AA7500DDB01C /* PBXTextBookmark */;
+			948930200F52031D00AB51F5 = 948930200F52031D00AB51F5 /* PBXTextBookmark */;
+			948930220F52031D00AB51F5 = 948930220F52031D00AB51F5 /* PBXTextBookmark */;
+			948930240F52031D00AB51F5 = 948930240F52031D00AB51F5 /* PBXTextBookmark */;
+			948930260F52031D00AB51F5 = 948930260F52031D00AB51F5 /* PBXTextBookmark */;
+			948930270F52031D00AB51F5 = 948930270F52031D00AB51F5 /* PBXTextBookmark */;
+			948930E70F5209D200AB51F5 = 948930E70F5209D200AB51F5 /* PBXTextBookmark */;
+			948930E80F5209D200AB51F5 = 948930E80F5209D200AB51F5 /* PBXTextBookmark */;
+			9489311A0F520CE000AB51F5 = 9489311A0F520CE000AB51F5 /* PBXTextBookmark */;
+			9489314F0F5212EF00AB51F5 = 9489314F0F5212EF00AB51F5 /* PBXTextBookmark */;
+			948931640F5212EF00AB51F5 = 948931640F5212EF00AB51F5 /* PBXTextBookmark */;
+			948931650F5212EF00AB51F5 = 948931650F5212EF00AB51F5 /* PBXTextBookmark */;
+			948932CA0F52288A00AB51F5 = 948932CA0F52288A00AB51F5 /* PBXTextBookmark */;
+			948933170F522AED00AB51F5 = 948933170F522AED00AB51F5 /* PBXTextBookmark */;
+			948933180F522AED00AB51F5 = 948933180F522AED00AB51F5 /* PBXTextBookmark */;
+			9489331C0F522AED00AB51F5 = 9489331C0F522AED00AB51F5 /* PBXTextBookmark */;
+			9489331D0F522AED00AB51F5 = 9489331D0F522AED00AB51F5 /* PBXTextBookmark */;
+			9489331E0F522AED00AB51F5 = 9489331E0F522AED00AB51F5 /* PBXTextBookmark */;
+			9489331F0F522AED00AB51F5 = 9489331F0F522AED00AB51F5 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 941920E70E94A7CA00DDB01C /* Source Control */;
 		userBuildSettings = {
@@ -141,7 +141,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 152";
 		rLen = 0;
-		rLoc = 5344;
+		rLoc = 5794;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -160,8 +160,8 @@
 		isa = PBXTextBookmark;
 		fRef = 941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */;
 		name = "EvernoteFUSE.m: 68";
-		rLen = 29;
-		rLoc = 2407;
+		rLen = 28;
+		rLoc = 2416;
 		rType = 0;
 		vrLen = 1889;
 		vrLoc = 1936;
@@ -171,7 +171,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 76";
 		rLen = 0;
-		rLoc = 2559;
+		rLoc = 3883;
 		rType = 0;
 		vrLen = 1752;
 		vrLoc = 810;
@@ -227,31 +227,31 @@
 	};
 	941920E90E94A7D200DDB01C /* EvernoteFUSE.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {847, 755}}";
-			sepNavSelRange = "{286, 46}";
-			sepNavVisRange = "{0, 339}";
+			sepNavIntBoundsRect = "{{0, 0}, {780, 1053}}";
+			sepNavSelRange = "{418, 0}";
+			sepNavVisRange = "{0, 662}";
 		};
 	};
 	941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {835, 1512}}";
-			sepNavSelRange = "{2407, 29}";
-			sepNavVisRange = "{1936, 1889}";
+			sepNavIntBoundsRect = "{{0, 0}, {861, 2226}}";
+			sepNavSelRange = "{2220, 16}";
+			sepNavVisRange = "{1245, 2120}";
 			sepNavWindowFrame = "{{149, 10}, {894, 868}}";
 		};
 	};
 	9419211F0E94A86B00DDB01C /* EvernoteFSController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {847, 755}}";
+			sepNavIntBoundsRect = "{{0, 0}, {861, 919}}";
 			sepNavSelRange = "{596, 0}";
 			sepNavVisRange = "{0, 681}";
 		};
 	};
 	941921200E94A86B00DDB01C /* EvernoteFSController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {835, 2114}}";
-			sepNavSelRange = "{2928, 20}";
-			sepNavVisRange = "{2386, 1968}";
+			sepNavIntBoundsRect = "{{0, 0}, {835, 2422}}";
+			sepNavSelRange = "{2965, 0}";
+			sepNavVisRange = "{180, 2160}";
 			sepNavWindowFrame = "{{490, 10}, {894, 868}}";
 		};
 	};
@@ -280,7 +280,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 15";
 		rLen = 0;
-		rLoc = 5346;
+		rLoc = 5796;
 		rType = 0;
 		vrLen = 341;
 		vrLoc = 0;
@@ -290,7 +290,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 16";
 		rLen = 0;
-		rLoc = 5143;
+		rLoc = 5593;
 		rType = 0;
 		vrLen = 535;
 		vrLoc = 0;
@@ -307,16 +307,17 @@
 	};
 	9419217C0E95730700DDB01C /* EvernoteConnection.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {914, 722}}";
-			sepNavSelRange = "{489, 41}";
-			sepNavVisRange = "{0, 536}";
+			sepNavIntBoundsRect = "{{0, 0}, {861, 919}}";
+			sepNavSelRange = "{299, 19}";
+			sepNavVisRange = "{0, 603}";
+			sepNavWindowFrame = "{{107, 57}, {920, 1032}}";
 		};
 	};
 	9419217D0E95730700DDB01C /* EvernoteConnection.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {902, 1246}}";
-			sepNavSelRange = "{2559, 0}";
-			sepNavVisRange = "{810, 1752}";
+			sepNavIntBoundsRect = "{{0, 0}, {861, 1442}}";
+			sepNavSelRange = "{2026, 0}";
+			sepNavVisRange = "{177, 2538}";
 		};
 	};
 	94892FA90F52004200AB51F5 /* Types.h */ = {
@@ -345,9 +346,9 @@
 	};
 	94892FAC0F52004200AB51F5 /* NoteStore.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {831, 4746}}";
-			sepNavSelRange = "{214, 0}";
-			sepNavVisRange = "{0, 1323}";
+			sepNavIntBoundsRect = "{{0, 0}, {1548, 3808}}";
+			sepNavSelRange = "{13451, 19}";
+			sepNavVisRange = "{6167, 7394}";
 			sepNavWindowFrame = "{{15, -1}, {878, 874}}";
 		};
 	};
@@ -369,26 +370,26 @@
 	};
 	94892FAF0F52004200AB51F5 /* Types.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {819, 68712}}";
+			sepNavIntBoundsRect = "{{0, 0}, {819, 68698}}";
 			sepNavSelRange = "{46865, 25}";
-			sepNavVisRange = "{46380, 1716}";
+			sepNavVisRange = "{46281, 1770}";
 			sepNavWindowFrame = "{{28, -1}, {878, 874}}";
 		};
 	};
 	94892FB00F52004200AB51F5 /* UserStore.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {831, 23646}}";
-			sepNavSelRange = "{2259, 8}";
-			sepNavVisRange = "{1484, 1058}";
-			sepNavWindowFrame = "{{15, -1}, {878, 874}}";
+			sepNavIntBoundsRect = "{{0, 0}, {819, 22190}}";
+			sepNavSelRange = "{44315, 56}";
+			sepNavVisRange = "{42908, 1994}";
+			sepNavWindowFrame = "{{2648, 96}, {878, 874}}";
 		};
 	};
 	94892FB10F52004200AB51F5 /* NoteStore.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {831, 181272}}";
-			sepNavSelRange = "{213, 0}";
-			sepNavVisRange = "{0, 1073}";
-			sepNavWindowFrame = "{{15, -1}, {878, 874}}";
+			sepNavIntBoundsRect = "{{0, 0}, {819, 180698}}";
+			sepNavSelRange = "{312624, 36}";
+			sepNavVisRange = "{311854, 1715}";
+			sepNavWindowFrame = "{{2320, 143}, {878, 874}}";
 		};
 	};
 	94892FB20F52004200AB51F5 /* Errors.h */ = {
@@ -549,8 +550,8 @@
 		isa = PBXTextBookmark;
 		fRef = 941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */;
 		name = "EvernoteFUSE.m: 85";
-		rLen = 7;
-		rLoc = 3772;
+		rLen = 0;
+		rLoc = 5117;
 		rType = 0;
 		vrLen = 1655;
 		vrLoc = 79;
@@ -560,7 +561,7 @@
 		fRef = 941920E90E94A7D200DDB01C /* EvernoteFUSE.h */;
 		name = "EvernoteFUSE.h: 18";
 		rLen = 0;
-		rLoc = 330;
+		rLoc = 656;
 		rType = 0;
 		vrLen = 302;
 		vrLoc = 0;
@@ -570,9 +571,9 @@
 		fRef = 941920E90E94A7D200DDB01C /* EvernoteFUSE.h */;
 		name = "EvernoteFUSE.h: 17";
 		rLen = 46;
-		rLoc = 283;
+		rLoc = 418;
 		rType = 0;
-		vrLen = 339;
+		vrLen = 336;
 		vrLoc = 0;
 	};
 	9489314F0F5212EF00AB51F5 /* PBXTextBookmark */ = {
@@ -590,7 +591,7 @@
 		fRef = 9419217C0E95730700DDB01C /* EvernoteConnection.h */;
 		name = "EvernoteConnection.h: 16";
 		rLen = 77;
-		rLoc = 364;
+		rLoc = 496;
 		rType = 0;
 		vrLen = 370;
 		vrLoc = 0;
@@ -600,7 +601,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 31";
 		rLen = 0;
-		rLoc = 1602;
+		rLoc = 2403;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -610,7 +611,7 @@
 		fRef = 9419217C0E95730700DDB01C /* EvernoteConnection.h */;
 		name = "EvernoteConnection.h: 24";
 		rLen = 41;
-		rLoc = 489;
+		rLoc = 621;
 		rType = 0;
 		vrLen = 536;
 		vrLoc = 0;
@@ -620,7 +621,7 @@
 		fRef = 941921200E94A86B00DDB01C /* EvernoteFSController.m */;
 		name = "EvernoteFSController.m: 152";
 		rLen = 0;
-		rLoc = 5344;
+		rLoc = 5794;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -649,8 +650,8 @@
 		isa = PBXTextBookmark;
 		fRef = 941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */;
 		name = "EvernoteFUSE.m: 68";
-		rLen = 29;
-		rLoc = 2407;
+		rLen = 28;
+		rLoc = 2416;
 		rType = 0;
 		vrLen = 1889;
 		vrLoc = 1936;
@@ -660,7 +661,7 @@
 		fRef = 9419217D0E95730700DDB01C /* EvernoteConnection.m */;
 		name = "EvernoteConnection.m: 76";
 		rLen = 0;
-		rLoc = 2559;
+		rLoc = 3883;
 		rType = 0;
 		vrLen = 1806;
 		vrLoc = 756;
