@@ -9,6 +9,8 @@
 #import "EvernoteFUSE.h"
 #import "EvernoteConnection.h"
 
+#import "NoteStore.h"
+
 #import <MacFUSE/GMUserFileSystem.h>
 
 static NSString* kMountPathPrefix			= @"/Volumes";
@@ -52,7 +54,21 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 ///////////////////////////////////////////////////////////////////////////////
 - (NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error;
 {
-	return [NSArray arrayWithObjects:@"There", @"Is", @"Nothing", @"To", @"See", @"Here", nil];
+	NSArray* retArr = [NSArray arrayWithObjects:@"There", @"Is", @"Nothing", @"To", @"See", @"Here", nil];
+	
+	if ([path isEqualToString:@"/"]) {
+		NSEnumerator* ntbkEnum = [[_econn listNotebooks] objectEnumerator];
+		EDAMNotebook* ntbk = nil;
+		NSMutableArray* mrArr = [NSMutableArray array];
+		
+		while ((ntbk = [ntbkEnum nextObject])) {
+			[mrArr addObject:[ntbk name]];
+		}
+		
+		retArr = (NSArray*)mrArr;
+	}
+	
+	return retArr;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -77,7 +93,20 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 			NSLog(@"Bad values for size (%lld) or lim (%lld).", size, lim);
 		}
 	}
+	
 	return (NSDictionary*)_attrDict;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (NSDictionary *)attributesOfItemAtPath:(NSString *)path
+                                userData:(id)userData
+                                   error:(NSError **)error;
+{
+	NSArray* comps = [path componentsSeparatedByString:@"/"];
+	NSLog(@"attributesOfItemAtPath: %@", comps);
+	NSDictionary* retDict = [NSDictionary dictionaryWithObjectsAndKeys:NSFileTypeDirectory, NSFileType, nil];
+	
+	return retDict;
 }
 @end
 
@@ -168,9 +197,12 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 - (void) dealloc;
 {
 	[self unmount];
+	
 	[_fs release];
 	[_volName release];
 	[_econn release];
+	[_attrDict release];
+	
 	[super dealloc];
 }
 @end

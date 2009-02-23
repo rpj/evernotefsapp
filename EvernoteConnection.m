@@ -101,36 +101,37 @@ static NSString* kNoteStoreURL	= @"http://lb.evernote.com/edam/note";
 ///////////////////////////////////////////////////////////////////////////////
 - (NSString*) username;
 {
-	if (_authedUser && [_authedUser usernameIsSet]) return [_authedUser username];
-	else return nil;
+	return (_authedUser && [_authedUser usernameIsSet]) ? [_authedUser username] : nil;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 - (NSString*) name;
 {
-	if (_authedUser && [_authedUser nameIsSet]) return [_authedUser name];
-	else return nil;
+	return (_authedUser && [_authedUser nameIsSet]) ? [_authedUser name] : nil;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 - (NSString*) email;
 {
-	if (_authedUser && [_authedUser emailIsSet]) return [_authedUser email];
-	else return nil;
+	return (_authedUser && [_authedUser emailIsSet]) ? [_authedUser email] : nil;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 - (int64_t) accountSize;
 {
-	if (_noteStoreClient && _authToken) return [_noteStoreClient getAccountSize:_authToken];
-	else return (int64_t)-1;
+	return ((_noteStoreClient && _authToken) ? [_noteStoreClient getAccountSize:_authToken] : (int64_t)-1);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 - (int64_t) uploadLimit;
 {
-	if ([self _getAccounting]) return [[self _getAccounting] uploadLimit];
-	else return (int64_t)-1;
+	return ([self _getAccounting] ? [[self _getAccounting] uploadLimit] : (int64_t)-1);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (NSArray*) listNotebooks;
+{
+	return ((_noteStoreClient && _authToken) ? [_noteStoreClient listNotebooks:_authToken] : [NSArray array]);
 }
 
 ///////////////////////////////////////////////////////////////////////////////

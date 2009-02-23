@@ -31,4 +31,6 @@
 
 - (int64_t) accountSize;
 - (int64_t) uploadLimit;
+
+- (NSArray*) listNotebooks;
 @end
