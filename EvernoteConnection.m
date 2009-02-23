@@ -65,6 +65,18 @@ static NSString* kConsumerKey = @"soulsurfer-5999";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+- (NSString*) name {
+	if (_authedUser && [_authedUser nameIsSet]) return [_authedUser name];
+	else return nil;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (NSString*) email {
+	if (_authedUser && [_authedUser emailIsSet]) return [_authedUser email];
+	else return nil;
+}
+
+///////////////////////////////////////////////////////////////////////////////
 - (void) dealloc {
 	[_username release];
 	[_password release];

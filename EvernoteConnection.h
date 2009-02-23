@@ -22,4 +22,6 @@
 - (BOOL) authenticate;
 
 - (NSString*) username;
+- (NSString*) name;
+- (NSString*) email;
 @end

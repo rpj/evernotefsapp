@@ -12,6 +12,7 @@
 
 static NSString* kServiceName				= @"EvernoteFSApp";
 static NSString* kUserDefAccountNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.AccountNameKey";
+static NSString* kUserDefUseFullNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.UseFullNameKey";
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -31,8 +32,6 @@ static NSString* kUserDefAccountNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.A
 	NSString* p = [_password stringValue];
 	
 	if (u && p) {
-		[_spinner startAnimation:self];
-		
 		EvernoteConnection* conn = [[EvernoteConnection alloc] initWithUserName:u andPassword:p];
 		
 		if ([conn authenticate]) {
@@ -55,7 +54,7 @@ static NSString* kUserDefAccountNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.A
 				
 				if (noErr != retStat) {
 					NSString* err = @"Unknown error.";
-					// in the case of this error, we really need to modify the keychain content...
+					// TODO: (BUG) in the case of this error, we really need to modify the keychain content...
 					if (retStat == -25299) err = @"Password already exists.";
 					
 					[_info setStringValue:[NSString stringWithFormat:@"Error saving to keychain: %@", err]];
@@ -72,8 +71,6 @@ static NSString* kUserDefAccountNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.A
 			[_password setStringValue:@""];
 			[_info setStringValue:@"Authentication failed."];
 		}
-		
-		[_spinner stopAnimation:self];
 	}
 	else {
 		[_info setStringValue:@"Missing information."];
@@ -81,13 +78,33 @@ static NSString* kUserDefAccountNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.A
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+- (IBAction) fullNameToggle:(id)sender {
+	[[NSUserDefaults standardUserDefaults] setBool:([_useFullName state] == NSOnState) forKey:kUserDefUseFullNameKey];
+	[self mountFuseFS];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (void) mountFuseFS {
+	if (_efs) [_efs release];
+	
+	NSString* volName = [NSString stringWithFormat:@"%@'s Evernote", 
+						 ([_useFullName state] == NSOnState) ? [_econn name] : [_econn username]];
+	[_info setStringValue:[NSString stringWithFormat:@"Account email: %@", [_econn email]]];
+	_efs = [[EvernoteFUSE alloc] initWithVolumeName:volName];
+	
+	NSLog(@"Built EvernoteFUSE \"%@\"", volName);
+}
+
+///////////////////////////////////////////////////////////////////////////////
 - (void) checkKeychainAndMount {
 	NSUserDefaults* udef = [NSUserDefaults standardUserDefaults];
 	NSString* accountName = [udef stringForKey:kUserDefAccountNameKey];
+	OSStatus retStat = 1;
 	
 	if (accountName) {
+		[_username setStringValue:accountName];
+		
 		SecKeychainRef keychain = nil;
-		OSStatus retStat;
 		const char* accountCString = [accountName cStringUsingEncoding:NSUTF8StringEncoding];
 		const char* serviceCString = [kServiceName cStringUsingEncoding:NSUTF8StringEncoding];
 		UInt32 passwordLength = 0;
@@ -99,7 +116,6 @@ static NSString* kUserDefAccountNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.A
 													 &passwordLength, (void**)&passwordString, NULL);
 			
 			if (noErr == retStat) {
-				[_username setStringValue:accountName];
 				[_password setStringValue:[NSString stringWithCString:passwordString length:passwordLength]];
 				
 				if (!_econn) {
@@ -112,14 +128,13 @@ static NSString* kUserDefAccountNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.A
 					[_prefPanel makeKeyAndOrderFront:self];
 				}
 				else {
-					NSString* volName = [NSString stringWithFormat:@"%@'s Evernote", [_econn username]];
-					_efs = [[EvernoteFUSE alloc] initWithVolumeName:volName];
-					NSLog(@"Built EvernoteFUSE//%@", volName);
+					[self mountFuseFS];
 				}
 			}
 		}
 	}
-	else {
+	
+	if (noErr != retStat) {
 		[_info setStringValue:@"Enter Evernote account information:"];
 		[_prefPanel makeKeyAndOrderFront:self];
 	}	
@@ -127,6 +142,7 @@ static NSString* kUserDefAccountNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.A
 
 ///////////////////////////////////////////////////////////////////////////////
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
+	[_useFullName setState:([[NSUserDefaults standardUserDefaults] boolForKey:kUserDefUseFullNameKey])];
 	[self checkKeychainAndMount];
 }
 

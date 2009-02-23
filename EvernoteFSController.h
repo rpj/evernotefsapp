@@ -19,10 +19,13 @@
 	IBOutlet NSTextField* _username;
 	IBOutlet NSTextField* _password;
 	IBOutlet NSButton* _verifyAccount;
-	IBOutlet NSProgressIndicator* _spinner;
 	IBOutlet NSTextField* _info;
+	IBOutlet NSButton* _useFullName;
 }
 
-- (IBAction) verifyAccount:(id)sender;
+- (void) mountFuseFS;
 - (void) checkKeychainAndMount;
+
+- (IBAction) verifyAccount:(id)sender;
+- (IBAction) fullNameToggle:(id)sender;
 @end
