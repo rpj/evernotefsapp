@@ -23,7 +23,10 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 //- (NSDictionary *)attributesOfFileSystemForPath:(NSString *)path error:(NSError **)error;
 @end
 
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 @implementation EvernoteFUSE (DelegatesAndNotifications)
+///////////////////////////////////////////////////////////////////////////////
 - (void) didMount:(NSNotification*)notify;
 {
 	// selects the newly-mounted FS in the Finder; lifted from Google's sample
@@ -31,24 +34,28 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 	NSLog(@"Mounted new EvernoteFS at '%@'", mountPath);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 - (void) didUnmount:(NSNotification*)notify;
 {
 	NSLog(@"someone unmounted us... trying to terminate lé app...");
 	[[NSApplication sharedApplication] terminate:self];
 }
 
+///////////////////////////////////////////////////////////////////////////////
 - (void) mountFailed:(NSNotification*)notify;
 {
 	NSLog(@"mountFailed: %@", notify);
 	NSLog(@"-- userInfo: %@", [notify userInfo]);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 - (NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error;
 {
 	return [NSArray arrayWithObjects:@"There", @"Is", @"Nothing", @"To", @"See", @"Here", nil];
 }
 
 /*
+///////////////////////////////////////////////////////////////////////////////
 - (NSDictionary *)attributesOfFileSystemForPath:(NSString *)path error:(NSError **)error;
 {
 	return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:(1024 * 1024 * 1)], @"NSFileSystemSize", nil];
@@ -56,7 +63,10 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 @end
 
 
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 @implementation EvernoteFUSE
+///////////////////////////////////////////////////////////////////////////////
 - (id) initWithVolumeName:(NSString*)volName;
 {
 	if ((self = [super init])) {
@@ -78,11 +88,13 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 	return self;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 - (id) init;
 {
 	return [self initWithVolumeName:@"Generic Evernote FS"];
 }
 
+///////////////////////////////////////////////////////////////////////////////
 - (void) dealloc;
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];

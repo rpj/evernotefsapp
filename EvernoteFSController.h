@@ -14,11 +14,13 @@
 	EvernoteFUSE* _efs;
 	EvernoteConnection* _econn;
 	
+	// preference panel outlets
 	IBOutlet NSPanel* _prefPanel;
 	IBOutlet NSTextField* _username;
 	IBOutlet NSTextField* _password;
 	IBOutlet NSButton* _verifyAccount;
 	IBOutlet NSProgressIndicator* _spinner;
+	IBOutlet NSTextField* _info;
 }
 
 - (IBAction) verifyAccount:(id)sender;

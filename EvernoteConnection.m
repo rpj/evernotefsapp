@@ -17,7 +17,10 @@
 static NSString* kVersionName = @"SoulSurfer Productions - EvernoteFSApp";
 static NSString* kConsumerKey = @"soulsurfer-5999";
 
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 @implementation EvernoteConnection
+///////////////////////////////////////////////////////////////////////////////
 - (id) initWithUserName:(NSString*)username andPassword:(NSString*)password {
 	if (username && password && (self = [super init])) {
 		_username = [username retain];
@@ -27,6 +30,7 @@ static NSString* kConsumerKey = @"soulsurfer-5999";
 	return self;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 - (BOOL) authenticate {
 	BOOL retVal = NO;
 	
@@ -50,9 +54,11 @@ static NSString* kConsumerKey = @"soulsurfer-5999";
 		}
 	}
 	
+	NSLog(@"authenticate returning %d", retVal);
 	return retVal;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 - (void) dealloc {
 	[_username release];
 	[_password release];
