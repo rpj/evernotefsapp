@@ -13,7 +13,15 @@
 
 #import <MacFUSE/GMUserFileSystem.h>
 
+#define TL_GTE_NOTEBOOK(l)			([(l) tryLockWhenCondition:kNotebookCacheReady] ||	\
+									 [(l) tryLockWhenCondition:kNotesCacheReady])
+#define TL_GTE_NOTES(l)				([(l) tryLockWhenCondition:kNotesCacheReady])
+
 static NSString* kMountPathPrefix			= @"/Volumes";
+
+@interface EvernoteFUSE (CacheThread)
+- (void) generateCache:(id)arg;
+@end
 
 @interface EvernoteFUSE (DelegatesAndNotifications)
 // notifications
@@ -24,6 +32,108 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 // delegate methods
 - (NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error;
 - (NSDictionary *)attributesOfFileSystemForPath:(NSString *)path error:(NSError **)error;
+@end
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+@implementation ENFUSEConditionLock
+///////////////////////////////////////////////////////////////////////////////
+- (id) init;
+{
+	if ((self = [super init])) {
+		_lastCondition = kCacheNotReady;
+	}
+	
+	return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (BOOL) tryLockWhenConditionGTE:(NSInteger)cond;
+{
+	BOOL gotLock = NO;
+	NSInteger condCount = cond;
+	_lastCondition = [self condition];
+	
+	for(; condCount < kLastCacheLockValue && !gotLock; condCount++) {
+		gotLock = [self tryLockWhenCondition:condCount];
+	}
+	
+	return gotLock;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (void) unlockWithLastCondition;
+{
+	[self unlockWithCondition:_lastCondition];
+}
+@end
+
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+@implementation EvernoteFUSE (CacheThread)
+///////////////////////////////////////////////////////////////////////////////
+- (void) generateCache:(id)arg;
+{
+	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+	
+	if (_econn) {
+		EDAMNotebook* ntbk = nil;
+		NSEnumerator* ntbkEnum = nil;
+		
+		// this thread modifies the cache, so must hold the lock regardless of condition
+		[_structCacheLock lock];
+		
+		if (_structCache) {
+			[_structCache release];
+		}		
+		
+		@try {
+			_structCache = [[NSMutableDictionary alloc] init];		
+			ntbkEnum = [[_econn listNotebooks] objectEnumerator];
+			
+			while ((ntbk = [ntbkEnum nextObject])) {
+				[_structCache setObject:ntbk forKey:[ntbk name]];
+			}
+		}
+		@catch (NSException* e) {
+			NSLog(@"Exception in stage one: %@", e);
+		}
+		@finally {
+			[_structCacheLock unlockWithCondition:kNotebookCacheReady];
+		}
+		
+		// here is where any consumers waiting on the kNotebookCacheReady condition but *not* needing to wait
+		// for kNotesCacheReady may have the ability to gain the lock and do some processing...
+		
+		[_structCacheLock lockWhenCondition:kNotebookCacheReady];
+		ntbkEnum = [[_structCache allKeys] objectEnumerator];
+		NSString* ntbkName = nil;
+		
+		@try {
+			while ((ntbkName = [ntbkEnum nextObject])) {
+				ntbk = (EDAMNotebook*)[_structCache objectForKey:ntbkName];
+				NSEnumerator* nEnum = [[_econn notesInNotebook:ntbk] objectEnumerator];
+				EDAMNote* note = nil;
+				NSMutableDictionary* ntbkDict = [NSMutableDictionary dictionary];
+				
+				while ((note = [nEnum nextObject])) {
+					[ntbkDict setObject:note forKey:[note title]];
+				}
+				
+				[_structCache setObject:ntbkDict forKey:ntbkName];
+			}
+		}
+		@catch (NSException* e) {
+			NSLog(@"Exception in stage two: %@", e);
+		}
+		@finally {
+			[_structCacheLock unlockWithCondition:kNotesCacheReady];
+		}
+	}
+	
+	[pool release];
+}
 @end
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -54,35 +164,33 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 ///////////////////////////////////////////////////////////////////////////////
 - (NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error;
 {
-	NSArray* retArr = [NSArray arrayWithObjects:@"There", @"Is", @"Nothing", @"To", @"See", @"Here", nil];
+	NSArray* retArr = nil;
 	NSArray* comps = [path componentsSeparatedByString:@"/"];
 	NSString* topLvl = nil;
 	
 	if ([comps count] > 1 && (topLvl = [comps objectAtIndex:1])) {
 		id structObj = nil;
-		EDAMNotebook* ntbk = nil;
-		NSMutableArray* mrArr = [NSMutableArray array];
 		
-		if ([topLvl isEqualToString:@""]) {
-			NSEnumerator* ntbkEnum = [[_econn listNotebooks] objectEnumerator];
-			
-			while ((ntbk = [ntbkEnum nextObject])) {
-				[mrArr addObject:[ntbk name]];
-				[_structCache setObject:ntbk forKey:[ntbk name]];
-			}
+		if ([topLvl isEqualToString:@""] && [_structCacheLock tryLockWhenConditionGTE:kNotebookCacheReady]) {
+			retArr = [_structCache allKeys];
+			[_structCacheLock unlockWithLastCondition];
 		}
-		else if ((structObj = [_structCache objectForKey:topLvl])) {
-			if ([structObj isKindOfClass:[EDAMNotebook class]]) {
-				NSEnumerator* nEnum = [[_econn notesInNotebook:(EDAMNotebook*)structObj] objectEnumerator];
+		else if ([_structCacheLock tryLockWhenConditionGTE:kNotesCacheReady]) {
+			if ((structObj = [_structCache objectForKey:topLvl]) && [structObj isKindOfClass:[NSDictionary class]]) {
+				NSMutableArray* mrArr = [NSMutableArray array];
+				NSEnumerator* nEnum = [[(NSDictionary*)structObj allKeys] objectEnumerator];
 				EDAMNote* note = nil;
 				
-				while ((note = [nEnum nextObject])) {
+				while ((note = [structObj objectForKey:(NSString*)[nEnum nextObject]])) {
 					[mrArr addObject:[note title]];
+					//NSLog(@"%@\n\n", note);
 				}
+				
+				retArr = (NSArray*)mrArr;
 			}
+			
+			[_structCacheLock unlockWithLastCondition];
 		}
-		
-		retArr = (NSArray*)mrArr;
 	}
 	
 	return retArr;
@@ -97,10 +205,7 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 	if (!_fsAttrDict) {
 		_fsAttrDict = [[NSMutableDictionary alloc] init];
 		
-		if (lim > 0 && size > 0 && lim > size) {			
-			NSLog(@"Account Size: %lld bytes", [_econn accountSize]);
-			NSLog(@"Upload Limit: %lld bytes", [_econn uploadLimit]);
-			
+		if (lim > 0 && size > 0 && lim > size) {
 			// this value will necessarily need be adjusted as the sync state changes (if we or
 			// other clients add or remove data).
 			[_fsAttrDict setObject:[NSNumber numberWithInt:(lim - size)] forKey:@"NSFileSystemFreeSize"];
@@ -125,8 +230,12 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 	int cCount = [comps count];
 	
 	if (cCount > 1 && (top = [comps objectAtIndex:1])) {
-		if (cCount <= 2 && ([top isEqualToString:@""] || [_structCache objectForKey:top])) {
-			retDict = [NSDictionary dictionaryWithObjectsAndKeys:NSFileTypeDirectory, NSFileType, nil];
+		if ([_structCacheLock tryLockWhenConditionGTE:kNotebookCacheReady]) {
+			if (cCount <= 3 && ([top isEqualToString:@""] || [_structCache objectForKey:top])) {
+				retDict = [NSDictionary dictionaryWithObjectsAndKeys:NSFileTypeDirectory, NSFileType, nil];
+			}
+			
+			[_structCacheLock unlockWithLastCondition];
 		}
 	}
 	
@@ -170,12 +279,14 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 {
 	[_econn release];
 	_econn = [conn retain];
+	
+	[NSThread detachNewThreadSelector:@selector(generateCache:) toTarget:self withObject:nil];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 - (void) mount;
 {
-	if (_volName && _econn) {	
+	if (_volName && _econn) {		
 		NSNotificationCenter* dCent = [NSNotificationCenter defaultCenter];
 		[dCent addObserver:self selector:@selector(didMount:) name:kGMUserFileSystemDidMount object:nil];
 		[dCent addObserver:self selector:@selector(didUnmount:) name:kGMUserFileSystemDidUnmount object:nil];
@@ -194,23 +305,17 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-- (void) unmount;
-{
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[_fs unmount];
-}
-
-///////////////////////////////////////////////////////////////////////////////
 - (id) initWithVolumeName:(NSString*)volName andConnection:(EvernoteConnection*)conn;
 {
 	if ((self = [super init])) {
 		_fs = [[GMUserFileSystem alloc] initWithDelegate:self isThreadSafe:YES];
 		
-		if (conn) _econn = [conn retain];		
-		if (volName) _volName = [volName retain];
+		if (conn) [self setConnection:conn];		
+		if (volName) [self setVolumeName:volName];
 		
 		_fsAttrDict = nil;
-		_structCache = [[NSMutableDictionary alloc] init];
+		_structCache = nil;
+		_structCacheLock = [[ENFUSEConditionLock alloc] initWithCondition:kCacheNotReady];
 	}
 	
 	return self;
@@ -229,6 +334,13 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+- (void) unmount;
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[_fs unmount];
+}
+
+///////////////////////////////////////////////////////////////////////////////
 - (void) dealloc;
 {
 	[self unmount];
@@ -238,6 +350,7 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 	[_econn release];
 	[_fsAttrDict release];
 	[_structCache release];
+	[_structCacheLock release];
 	
 	[super dealloc];
 }
