@@ -135,6 +135,27 @@ static NSString* kNoteStoreURL	= @"http://lb.evernote.com/edam/note";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+- (NSArray*) notesInNotebook:(EDAMNotebook*)notebook;
+{
+	NSArray* ret = [NSArray array];
+	
+	if (_noteStoreClient && _authToken && notebook) {
+		@try {
+			EDAMNoteFilter* filter = [[[EDAMNoteFilter alloc] init] autorelease];
+			[filter setNotebookGuid:[notebook guid]];
+			
+			EDAMNoteList* nList = [_noteStoreClient findNotes:_authToken :filter :0 :500];
+			if (nList) ret = [nList notes];
+		}
+		@catch (NSException* e) {
+			NSLog(@"Exception in notesInNotebook: %@", e);
+		}
+	}
+	
+	return ret;
+}
+
+///////////////////////////////////////////////////////////////////////////////
 - (void) dealloc;
 {
 	[_username release];

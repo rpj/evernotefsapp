@@ -15,7 +15,9 @@
 	EvernoteConnection*		_econn;
 	
 	NSString*				_volName;
-	NSMutableDictionary*	_attrDict;
+	NSMutableDictionary*	_fsAttrDict;
+	
+	NSMutableDictionary*	_structCache;
 }
 
 - (id) initWithVolumeName:(NSString*)volName andConnection:(EvernoteConnection*)conn;

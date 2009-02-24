@@ -55,14 +55,31 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 - (NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error;
 {
 	NSArray* retArr = [NSArray arrayWithObjects:@"There", @"Is", @"Nothing", @"To", @"See", @"Here", nil];
+	NSArray* comps = [path componentsSeparatedByString:@"/"];
+	NSString* topLvl = nil;
 	
-	if ([path isEqualToString:@"/"]) {
-		NSEnumerator* ntbkEnum = [[_econn listNotebooks] objectEnumerator];
+	if ([comps count] > 1 && (topLvl = [comps objectAtIndex:1])) {
+		id structObj = nil;
 		EDAMNotebook* ntbk = nil;
 		NSMutableArray* mrArr = [NSMutableArray array];
 		
-		while ((ntbk = [ntbkEnum nextObject])) {
-			[mrArr addObject:[ntbk name]];
+		if ([topLvl isEqualToString:@""]) {
+			NSEnumerator* ntbkEnum = [[_econn listNotebooks] objectEnumerator];
+			
+			while ((ntbk = [ntbkEnum nextObject])) {
+				[mrArr addObject:[ntbk name]];
+				[_structCache setObject:ntbk forKey:[ntbk name]];
+			}
+		}
+		else if ((structObj = [_structCache objectForKey:topLvl])) {
+			if ([structObj isKindOfClass:[EDAMNotebook class]]) {
+				NSEnumerator* nEnum = [[_econn notesInNotebook:(EDAMNotebook*)structObj] objectEnumerator];
+				EDAMNote* note = nil;
+				
+				while ((note = [nEnum nextObject])) {
+					[mrArr addObject:[note title]];
+				}
+			}
 		}
 		
 		retArr = (NSArray*)mrArr;
@@ -77,24 +94,24 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 	int64_t size = [_econn accountSize];
 	int64_t lim = [_econn uploadLimit];
 	
-	if (!_attrDict) {
-		_attrDict = [[NSMutableDictionary alloc] init];
+	if (!_fsAttrDict) {
+		_fsAttrDict = [[NSMutableDictionary alloc] init];
 		
 		if (lim > 0 && size > 0 && lim > size) {			
-			NSLog(@"Account Size: %lld bytes", (int32_t)[_econn accountSize]);
-			NSLog(@"Upload Limit: %lld bytes", (int32_t)[_econn uploadLimit]);
+			NSLog(@"Account Size: %lld bytes", [_econn accountSize]);
+			NSLog(@"Upload Limit: %lld bytes", [_econn uploadLimit]);
 			
 			// this value will necessarily need be adjusted as the sync state changes (if we or
 			// other clients add or remove data).
-			[_attrDict setObject:[NSNumber numberWithInt:(lim - size)] forKey:@"NSFileSystemFreeSize"];
-			[_attrDict setObject:[NSNumber numberWithInt:lim] forKey:@"NSFileSystemSize"];
+			[_fsAttrDict setObject:[NSNumber numberWithInt:(lim - size)] forKey:@"NSFileSystemFreeSize"];
+			[_fsAttrDict setObject:[NSNumber numberWithInt:lim] forKey:@"NSFileSystemSize"];
 		}
 		else {
 			NSLog(@"Bad values for size (%lld) or lim (%lld).", size, lim);
 		}
 	}
 	
-	return (NSDictionary*)_attrDict;
+	return (NSDictionary*)_fsAttrDict;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -103,10 +120,25 @@ static NSString* kMountPathPrefix			= @"/Volumes";
                                    error:(NSError **)error;
 {
 	NSArray* comps = [path componentsSeparatedByString:@"/"];
-	NSLog(@"attributesOfItemAtPath: %@", comps);
-	NSDictionary* retDict = [NSDictionary dictionaryWithObjectsAndKeys:NSFileTypeDirectory, NSFileType, nil];
+	NSDictionary* retDict = [NSDictionary dictionaryWithObjectsAndKeys:NSFileTypeRegular, NSFileType, nil];
+	NSString* top = nil;
+	int cCount = [comps count];
+	
+	if (cCount > 1 && (top = [comps objectAtIndex:1])) {
+		if (cCount <= 2 && ([top isEqualToString:@""] || [_structCache objectForKey:top])) {
+			retDict = [NSDictionary dictionaryWithObjectsAndKeys:NSFileTypeDirectory, NSFileType, nil];
+		}
+	}
 	
 	return retDict;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+- (NSDictionary *)attributesOfItemAtPath:(NSString *)path 
+                                   error:(NSError **)error;
+{
+	return [self attributesOfItemAtPath:path userData:nil error:error];
 }
 @end
 
@@ -176,6 +208,9 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 		
 		if (conn) _econn = [conn retain];		
 		if (volName) _volName = [volName retain];
+		
+		_fsAttrDict = nil;
+		_structCache = [[NSMutableDictionary alloc] init];
 	}
 	
 	return self;
@@ -201,7 +236,8 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 	[_fs release];
 	[_volName release];
 	[_econn release];
-	[_attrDict release];
+	[_fsAttrDict release];
+	[_structCache release];
 	
 	[super dealloc];
 }
