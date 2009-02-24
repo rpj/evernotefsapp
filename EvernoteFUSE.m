@@ -13,10 +13,6 @@
 
 #import <MacFUSE/GMUserFileSystem.h>
 
-#define TL_GTE_NOTEBOOK(l)			([(l) tryLockWhenCondition:kNotebookCacheReady] ||	\
-									 [(l) tryLockWhenCondition:kNotesCacheReady])
-#define TL_GTE_NOTES(l)				([(l) tryLockWhenCondition:kNotesCacheReady])
-
 static NSString* kMountPathPrefix			= @"/Volumes";
 
 @interface EvernoteFUSE (CacheThread)
