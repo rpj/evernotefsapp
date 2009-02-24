@@ -1,0 +1,2 @@
+- Most likely, the structure of the remote Evernote store will *have* to be cached. Additionally, it may be necessary to also cache locally (on-disk) the most-recently-known contents of the note store.
+- Notes will likely need be represented as directories, in which all the resources are given as regular files. So, for example, a note with a PDF and JPEG image attached as resources would have a .pdf file and a .jpg file, named by the resource GUID, and likely a plain text file with the actual "contents" of the note (from the ENML).
