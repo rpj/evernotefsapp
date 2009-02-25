@@ -15,6 +15,9 @@
 
 static NSString* kMountPathPrefix			= @"/Volumes";
 
+// begins with two nulls to ensure this key will *never* be an Evernote notebook or note name
+static NSString* kEDAMObjectSpecialKey		= @"\0\0//me.rpj.EvernoteFSApp.SpecialKey.EDAMObject";
+
 @interface EvernoteFUSE (CacheThread)
 - (void) generateCache:(id)arg;
 @end
@@ -118,6 +121,7 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 				}
 				
 				[_structCache setObject:ntbkDict forKey:ntbkName];
+				[_structCache setObject:ntbk forKey:kEDAMObjectSpecialKey];
 			}
 		}
 		@catch (NSException* e) {
@@ -126,6 +130,8 @@ static NSString* kMountPathPrefix			= @"/Volumes";
 		@finally {
 			[_structCacheLock unlockWithCondition:kNotesCacheReady];
 		}
+		
+		NSLog(@"CACHE DONE:\n%@\n\n", _structCache);
 	}
 	
 	[pool release];
