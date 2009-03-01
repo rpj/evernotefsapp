@@ -17,6 +17,13 @@ typedef enum {
 	kLastCacheLockValue
 } EvernoteFUSELockConditions;
 
+typedef enum {
+	kNotMounted				= 0,
+	kMounting				= 1,
+	kMounted				= 2,
+	kLastMountValue
+} EvernoteFUSEMountStatus;
+
 @interface ENFUSEConditionLock : NSConditionLock {
 	NSInteger _lastCondition;
 }
@@ -34,6 +41,11 @@ typedef enum {
 	
 	NSMutableDictionary*	_structCache;
 	ENFUSEConditionLock*	_structCacheLock;
+	
+	NSMutableDictionary*	_diskCache;
+	NSLock*					_diskCacheLock;
+	
+	EvernoteFUSEMountStatus	_mountStatus;	// must be modified only on main thread (ie: CacheThread category code can't modify!)
 }
 
 - (id) initWithVolumeName:(NSString*)volName andConnection:(EvernoteConnection*)conn;
