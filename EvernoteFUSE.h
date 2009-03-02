@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EvernoteConnection.h"
+#import "NoteStore.h"
 
-@class GMUserFileSystem, EvernoteConnection;
+@class GMUserFileSystem;
+
+extern const NSString* kAppSupportFolder;
+extern const NSString* kEDAMObjectSpecialKey;
 
 typedef enum {
 	kCacheNotReady			= 0,

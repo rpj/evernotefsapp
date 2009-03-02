@@ -34,6 +34,7 @@
 		94892FE80F52009000AB51F5 /* TApplicationException.m in Sources */ = {isa = PBXBuildFile; fileRef = 94892FDD0F52009000AB51F5 /* TApplicationException.m */; };
 		948931440F5211EB00AB51F5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948931430F5211EB00AB51F5 /* Security.framework */; };
 		9489332B0F522E2600AB51F5 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 9489332A0F522E2600AB51F5 /* Credits.html */; };
+		94B1EC8A0F5B816B00DF3F60 /* EvernoteFUSE+CacheThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B1EC890F5B816B00DF3F60 /* EvernoteFUSE+CacheThread.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		94892FDD0F52009000AB51F5 /* TApplicationException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TApplicationException.m; path = Support/thrift/lib/cocoa/src/TApplicationException.m; sourceTree = "<group>"; };
 		948931430F5211EB00AB51F5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		9489332A0F522E2600AB51F5 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
+		94B1EC890F5B816B00DF3F60 /* EvernoteFUSE+CacheThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EvernoteFUSE+CacheThread.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				94B1EC890F5B816B00DF3F60 /* EvernoteFUSE+CacheThread.m */,
 				941920E90E94A7D200DDB01C /* EvernoteFUSE.h */,
 				941920EA0E94A7D200DDB01C /* EvernoteFUSE.m */,
 				9419211F0E94A86B00DDB01C /* EvernoteFSController.h */,
@@ -348,6 +351,7 @@
 				94892FE60F52009000AB51F5 /* TProtocolException.m in Sources */,
 				94892FE70F52009000AB51F5 /* TProtocolUtil.m in Sources */,
 				94892FE80F52009000AB51F5 /* TApplicationException.m in Sources */,
+				94B1EC8A0F5B816B00DF3F60 /* EvernoteFUSE+CacheThread.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
