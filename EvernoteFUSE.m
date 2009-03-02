@@ -115,13 +115,11 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 		@try {
 			while ((ntbkName = [ntbkEnum nextObject])) {
 				ntbk = (EDAMNotebook*)[_structCache objectForKey:ntbkName];
-				//NSLog(@"%@ -> %@\n\n", ntbkName, ntbk);
 				NSEnumerator* nEnum = [[_econn notesInNotebook:ntbk] objectEnumerator];
 				EDAMNote* note = nil;
 				NSMutableDictionary* ntbkDict = [NSMutableDictionary dictionary];
 				
 				while ((note = [nEnum nextObject])) {
-					//NSLog(@"%@ -> %@\n", [note title], note);
 					[ntbkDict setObject:[note retain] forKey:[note title]];
 				}
 				
@@ -137,11 +135,90 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 			[_connLock unlock];
 		}
 		
-		NSLog(@"generateCache finished, starting refreshDiskCache on thread %@", [NSThread currentThread]);
 		[self refreshDiskCache];
 	}
 	
 	[pool release];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (BOOL) _checkFolderAndCreateIfNeeded:(NSString*)folder;
+{
+	NSFileManager* fmgr = [NSFileManager defaultManager];
+	BOOL isDir = NO;
+	BOOL retVal = YES;
+	
+	if (![fmgr fileExistsAtPath:folder isDirectory:&isDir] || !isDir) {
+		if (!isDir) [fmgr removeFileAtPath:folder handler:nil];
+		retVal = [fmgr createDirectoryAtPath:folder attributes:nil];
+	}
+	
+	return retVal;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (void) _refreshNoteDiskCache:(EDAMNote*)note inNotebook:(NSString*)nbFolder;
+{
+	NSString* notePath = [NSString stringWithFormat:@"%@/%@", nbFolder, [note guid]];
+	
+	if ([self _checkFolderAndCreateIfNeeded:notePath]) {
+		NSString* verifyPath = [NSString stringWithFormat:@"%@/contentVerify", notePath];
+		NSDictionary* verifyDict = nil;
+		BOOL needRefresh = NO;
+		
+		if ((verifyDict = [NSDictionary dictionaryWithContentsOfFile:verifyPath])) {
+			needRefresh = !([[note contentHash] isEqualToData:[verifyDict objectForKey:@"contentHash"]] &&
+							[(NSNumber*)[verifyDict objectForKey:@"contentLength"] intValue] == [note contentLength] &&
+							[(NSNumber*)[verifyDict objectForKey:@"created"] unsignedLongLongValue] == [note created] &&
+							[(NSNumber*)[verifyDict objectForKey:@"updated"] unsignedLongLongValue] == [note updated]);
+		}
+		else {
+			NSDictionary* verifyDict = [NSDictionary dictionaryWithObjectsAndKeys:
+										[note contentHash], @"contentHash", 
+										[NSNumber numberWithInt:[note contentLength]], @"contentLength",
+										[NSNumber numberWithUnsignedLongLong:[note created]], @"created", 
+										[NSNumber numberWithUnsignedLongLong:[note updated]], @"updated", nil];
+			
+			[verifyDict writeToFile:verifyPath atomically:NO];
+			needRefresh = YES;
+		}
+		
+		// for the time being, refresh is an all-or-nothing thing...
+		if (needRefresh) {
+			NSLog(@"Refreshing %@ (%@)...", [note title], [note guid]);
+			
+			NSString* content = nil;
+			NSString* contentPath = [NSString stringWithFormat:@"%@/content.xhtml", notePath];
+			
+			@try {
+				if (![note contentIsSet] || !(content = [note content])) {
+					[_connLock lock];
+					content = [_econn noteContent:note];
+					[_connLock unlock];
+				}
+				
+				[content writeToFile:contentPath atomically:NO encoding:NSUTF8StringEncoding error:nil];
+				
+				NSEnumerator* resEnum = [[note resources] objectEnumerator];
+				EDAMResource* res = nil;
+				
+				while ((res = [resEnum nextObject])) {
+					[_connLock lock];
+					NSData* resData = [_econn resourceContent:res];
+					[_connLock unlock];
+					
+					if (resData && [resData length]) {
+						NSString* path = [NSString stringWithFormat:@"%@/%@", notePath, [res guid]];
+						if (![resData writeToFile:path atomically:NO])
+							NSLog(@"Unable to write resource at %@", path);
+					}
+				}
+			}
+			@catch (NSException* e) {
+				NSLog(@"Exception in _refreshNoteDiskCache:%@: %@", [note title], e);
+			}
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -150,34 +227,35 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 	[_diskCacheLock lock];
 	NSLog(@"[%@ refreshDiskCache] starting", [NSThread currentThread]);
 	
-	NSFileManager* fmgr = [NSFileManager defaultManager];
-	BOOL isDir = NO;
-	
 	if (_diskCache) [_diskCache release];
 	_diskCache = [[NSMutableDictionary alloc] init];
 	
 	NSString* expAppSup = [kAppSupportFolder stringByExpandingTildeInPath];
-	if (![fmgr fileExistsAtPath:expAppSup isDirectory:&isDir] || !isDir) {
-		if (!isDir) [fmgr removeFileAtPath:expAppSup handler:nil];
-		[fmgr createDirectoryAtPath:expAppSup attributes:nil];
-	}
+	[self _checkFolderAndCreateIfNeeded:expAppSup];
 	
 	NSEnumerator* nbEnum = [[_structCache allValues] objectEnumerator];
 	NSDictionary* dict = nil;
 	
 	while ((dict = [nbEnum nextObject])) {
-		NSEnumerator* dEnum = [[dict allKeys] objectEnumerator];
-		NSString* dKey = nil;
-		EDAMNote* note = nil;
+		EDAMNotebook* nb = [dict objectForKey:kEDAMObjectSpecialKey];
 		
-		while ((dKey = [dEnum nextObject])) {
-			if (![dKey isEqualToString:kEDAMObjectSpecialKey] && 
-				([(note = [dict objectForKey:dKey]) isKindOfClass:[EDAMNote class]])) {
-				NSString* notePath = [NSString stringWithFormat:@"%@/%@/%@", kAppSupportFolder, [note notebookGuid], [note guid]];
-				NSLog(@"Need to download note %@", notePath);
+		if (nb && [nb guidIsSet]) {
+			NSString* nbFolder = [[NSString stringWithFormat:@"%@/%@", kAppSupportFolder, [nb guid]] stringByExpandingTildeInPath];
+			
+			if ([self _checkFolderAndCreateIfNeeded:nbFolder]) {
+				NSEnumerator* dEnum = [[dict allKeys] objectEnumerator];
+				NSString* dKey = nil;
+				EDAMNote* note = nil;
+				
+				while ((dKey = [dEnum nextObject])) {
+					if (![dKey isEqualToString:kEDAMObjectSpecialKey] && 
+						([(note = [dict objectForKey:dKey]) isKindOfClass:[EDAMNote class]])) {
+						[self _refreshNoteDiskCache:note inNotebook:nbFolder];
+					}
+				}
 			}
+			else NSLog(@"Error creating '%@'", nbFolder);
 		}
-		NSLog(@"%@", [dict objectForKey:kEDAMObjectSpecialKey]);
 	}
 	
 	NSLog(@"[%@ refreshDiskCache] ending", [NSThread currentThread]);

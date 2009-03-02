@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class EDAMUserStoreClient, EDAMUser, EDAMNoteStoreClient, EDAMAccounting, EDAMNotebook;
+@class EDAMUserStoreClient, EDAMUser, EDAMNoteStoreClient, EDAMAccounting, EDAMNotebook, EDAMNote, EDAMResource, EDAMData;
 
 @interface EvernoteConnection : NSObject {
 	NSString* _username;
@@ -34,4 +34,7 @@
 
 - (NSArray*) listNotebooks;
 - (NSArray*) notesInNotebook:(EDAMNotebook*)notebook;
+
+- (NSString*) noteContent:(EDAMNote*)note;
+- (NSData*) resourceContent:(EDAMResource*)res;
 @end

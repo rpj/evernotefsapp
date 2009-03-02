@@ -135,6 +135,21 @@ static NSString* kNoteStoreURL	= @"http://lb.evernote.com/edam/note";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+- (NSString*) noteContent:(EDAMNote*)note;
+{
+	return ((_noteStoreClient && _authToken && [note guidIsSet]) ? 
+			[_noteStoreClient getNoteContent:_authToken :[note guid]] : nil);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (NSData*) resourceContent:(EDAMResource*)res;
+{
+	return ((_noteStoreClient && _authToken && [res guidIsSet]) ?
+			([res dataIsSet] && [[res data] bodyIsSet] ? 
+			 [[res data] body] : [_noteStoreClient getResourceData:_authToken :[res guid]]) : nil);
+}
+
+///////////////////////////////////////////////////////////////////////////////
 - (NSArray*) notesInNotebook:(EDAMNotebook*)notebook;
 {
 	NSArray* ret = [NSArray array];
