@@ -151,7 +151,7 @@ static NSString* kUserDefUseFullNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.U
 				}
 			}
 			
-			SecKeychainItemFreeContent(NULL, passwordString);
+			SecKeychainItemFreeContent(NULL, (void*)passwordString);
 		}
 	}
 	

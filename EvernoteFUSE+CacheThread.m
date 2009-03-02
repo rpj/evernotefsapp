@@ -38,7 +38,7 @@
 			ntbkEnum = [[_econn listNotebooks] objectEnumerator];
 			
 			while ((ntbk = [ntbkEnum nextObject])) {
-				[_structCache setObject:[ntbk retain] forKey:[ntbk name]];
+				[_structCache setObject:ntbk forKey:[ntbk name]];
 			}
 		}
 		@catch (NSException* e) {
@@ -65,7 +65,7 @@
 				NSMutableDictionary* ntbkDict = [NSMutableDictionary dictionary];
 				
 				while ((note = [nEnum nextObject])) {
-					[ntbkDict setObject:[note retain] forKey:[note title]];
+					[ntbkDict setObject:note forKey:[note title]];
 				}
 				
 				[ntbkDict setObject:ntbk forKey:kEDAMObjectSpecialKey];
