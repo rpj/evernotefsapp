@@ -34,7 +34,9 @@ typedef enum {
 
 @interface EvernoteFUSE : NSObject {
 	GMUserFileSystem*		_fs;
+	
 	EvernoteConnection*		_econn;
+	NSLock*					_connLock;
 	
 	NSString*				_volName;
 	NSMutableDictionary*	_fsAttrDict;

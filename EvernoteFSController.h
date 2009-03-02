@@ -28,4 +28,6 @@
 
 - (IBAction) verifyAccount:(id)sender;
 - (IBAction) fullNameToggle:(id)sender;
+
+- (IBAction) quit:(id)sender;
 @end

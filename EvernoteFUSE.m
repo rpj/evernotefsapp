@@ -82,17 +82,18 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 		
 		// this thread modifies the cache, so must hold the lock regardless of condition
 		[_structCacheLock lock];
+		[_connLock lock];
 		
 		if (_structCache) {
 			[_structCache release];
 		}		
 		
 		@try {
-			_structCache = [[NSMutableDictionary alloc] init];		
+			_structCache = [[NSMutableDictionary alloc] init];
 			ntbkEnum = [[_econn listNotebooks] objectEnumerator];
 			
 			while ((ntbk = [ntbkEnum nextObject])) {
-				[_structCache setObject:ntbk forKey:[ntbk name]];
+				[_structCache setObject:[ntbk retain] forKey:[ntbk name]];
 			}
 		}
 		@catch (NSException* e) {
@@ -100,12 +101,14 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 		}
 		@finally {
 			[_structCacheLock unlockWithCondition:kNotebookCacheReady];
+			[_connLock unlock];
 		}
 		
 		// here is where any consumers waiting on the kNotebookCacheReady condition but *not* needing to wait
 		// for kNotesCacheReady may have the ability to gain the lock and do some processing...
 		
 		[_structCacheLock lockWhenCondition:kNotebookCacheReady];
+		[_connLock lock];
 		ntbkEnum = [[_structCache allKeys] objectEnumerator];
 		NSString* ntbkName = nil;
 		
@@ -119,7 +122,7 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 				
 				while ((note = [nEnum nextObject])) {
 					//NSLog(@"%@ -> %@\n", [note title], note);
-					[ntbkDict setObject:note forKey:[note title]];
+					[ntbkDict setObject:[note retain] forKey:[note title]];
 				}
 				
 				[ntbkDict setObject:ntbk forKey:kEDAMObjectSpecialKey];
@@ -131,10 +134,11 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 		}
 		@finally {
 			[_structCacheLock unlockWithCondition:kNotesCacheReady];
+			[_connLock unlock];
 		}
 		
-		//NSLog(@"generateCache finished, starting refreshDiskCache on thread %@", [NSThread currentThread]);
-		//[self refreshDiskCache];
+		NSLog(@"generateCache finished, starting refreshDiskCache on thread %@", [NSThread currentThread]);
+		[self refreshDiskCache];
 	}
 	
 	[pool release];
@@ -154,18 +158,25 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 	
 	NSString* expAppSup = [kAppSupportFolder stringByExpandingTildeInPath];
 	if (![fmgr fileExistsAtPath:expAppSup isDirectory:&isDir] || !isDir) {
-		if (!isDir && ![fmgr removeFileAtPath:expAppSup handler:nil]) {
-			NSLog(@"%@ exists and isn't a folder, but was unable to remove.", expAppSup);
-		}
-		
+		if (!isDir) [fmgr removeFileAtPath:expAppSup handler:nil];
 		[fmgr createDirectoryAtPath:expAppSup attributes:nil];
-		NSLog(@"Created %@", expAppSup);
 	}
 	
 	NSEnumerator* nbEnum = [[_structCache allValues] objectEnumerator];
 	NSDictionary* dict = nil;
 	
 	while ((dict = [nbEnum nextObject])) {
+		NSEnumerator* dEnum = [[dict allKeys] objectEnumerator];
+		NSString* dKey = nil;
+		EDAMNote* note = nil;
+		
+		while ((dKey = [dEnum nextObject])) {
+			if (![dKey isEqualToString:kEDAMObjectSpecialKey] && 
+				([(note = [dict objectForKey:dKey]) isKindOfClass:[EDAMNote class]])) {
+				NSString* notePath = [NSString stringWithFormat:@"%@/%@/%@", kAppSupportFolder, [note notebookGuid], [note guid]];
+				NSLog(@"Need to download note %@", notePath);
+			}
+		}
 		NSLog(@"%@", [dict objectForKey:kEDAMObjectSpecialKey]);
 	}
 	
@@ -180,9 +191,7 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 ///////////////////////////////////////////////////////////////////////////////
 - (void) didMount:(NSNotification*)notify;
 {
-	// selects the newly-mounted FS in the Finder; lifted from Google's sample
-	NSString* mountPath = [[notify userInfo] objectForKey:kGMUserFileSystemMountPathKey];
-	NSLog(@"Mounted new EvernoteFS at '%@'", mountPath);
+	NSLog(@"Mounted new EvernoteFS at '%@'", [[notify userInfo] objectForKey:kGMUserFileSystemMountPathKey]);
 	NSAssert1((_mountStatus == kMounting), @"didMount: mount status should be kMounting, but is %d", _mountStatus);
 	_mountStatus = kMounted;
 }
@@ -199,7 +208,6 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 - (void) mountFailed:(NSNotification*)notify;
 {
 	NSLog(@"mountFailed: %@", notify);
-	NSLog(@"-- userInfo: %@", [notify userInfo]);
 	_mountStatus = kNotMounted;
 }
 
@@ -236,8 +244,6 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 				[_structCacheLock unlockWithLastCondition];
 			}
 		}
-		
-		NSLog(@"contentsForPath:%@ returning %@", path, retArr);
 	}
 	else NSLog(@"contentsOfDirectoryAtPath:%@ -- not yet mounted (%d)", path, _mountStatus);
 	
@@ -246,21 +252,30 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 
 ///////////////////////////////////////////////////////////////////////////////
 - (NSDictionary *)attributesOfFileSystemForPath:(NSString *)path error:(NSError **)error;
-{
-	int64_t size = [_econn accountSize];
-	int64_t lim = [_econn uploadLimit];
-	
+{	
 	if (!_fsAttrDict) {
 		_fsAttrDict = [[NSMutableDictionary alloc] init];
 		
-		if (lim > 0 && size > 0 && lim > size) {
-			// this value will necessarily need be adjusted as the sync state changes (if we or
-			// other clients add or remove data).
-			[_fsAttrDict setObject:[NSNumber numberWithInt:(lim - size)] forKey:@"NSFileSystemFreeSize"];
-			[_fsAttrDict setObject:[NSNumber numberWithInt:lim] forKey:@"NSFileSystemSize"];
+		if ([_connLock lockBeforeDate:[NSDate dateWithTimeIntervalSinceNow:30.0]]) {
+			int64_t size = [_econn accountSize];
+			int64_t lim = [_econn uploadLimit];
+			
+			if (lim > 0 && size > 0 && lim > size) {
+				// this value will necessarily need be adjusted as the sync state changes (if we or
+				// other clients add or remove data).
+				[_fsAttrDict setObject:[NSNumber numberWithInt:(lim - size)] forKey:@"NSFileSystemFreeSize"];
+				[_fsAttrDict setObject:[NSNumber numberWithInt:lim] forKey:@"NSFileSystemSize"];
+			}
+			else {
+				NSLog(@"Bad values for size (%lld) or lim (%lld).", size, lim);
+			}
+			
+			[_connLock unlock];
 		}
 		else {
-			NSLog(@"Bad values for size (%lld) or lim (%lld).", size, lim);
+			NSLog(@"attributesOfFileSystemForPath couldn't lock _connLock; returning");
+			return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1], @"NSFileSystemFreeSize",
+					[NSNumber numberWithInt:1], @"NSFileSystemSize", nil];
 		}
 	}
 	
@@ -279,7 +294,7 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 	
 	// default return is a regular file of size 4096 with mode 0444
 	retDict = [NSDictionary dictionaryWithObjectsAndKeys:NSFileTypeRegular, NSFileType, 
-			   [NSNumber numberWithUnsignedLong:420], NSFilePosixPermissions, 
+			   [NSNumber numberWithUnsignedLong:292], NSFilePosixPermissions, 
 			   [NSNumber numberWithUnsignedLongLong:4096], NSFileSize, nil];
 	
 	if (cCount > 1 && (top = [comps objectAtIndex:1])) {
@@ -333,8 +348,10 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 ///////////////////////////////////////////////////////////////////////////////
 - (void) setConnection:(EvernoteConnection*)conn;
 {
+	[_connLock lock];
 	[_econn release];
 	_econn = [conn retain];
+	[_connLock unlock];
 	
 	[NSThread detachNewThreadSelector:@selector(generateCache:) toTarget:self withObject:nil];
 }
@@ -342,17 +359,19 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 ///////////////////////////////////////////////////////////////////////////////
 - (void) mount;
 {
-	if (_volName && _econn) {		
-		NSNotificationCenter* dCent = [NSNotificationCenter defaultCenter];
-		[dCent addObserver:self selector:@selector(didMount:) name:kGMUserFileSystemDidMount object:nil];
-		[dCent addObserver:self selector:@selector(didUnmount:) name:kGMUserFileSystemDidUnmount object:nil];
-		[dCent addObserver:self selector:@selector(mountFailed:) name:kGMUserFileSystemMountFailed object:nil];
-		
+	if (_volName && _econn) {
 		NSMutableArray* options = [NSMutableArray array];
+		[options addObject:@"daemon_timeout=15"];
+		[options addObject:@"fsname=EvernoteFS"];
+		//[options addObject:@"kill_on_unmount"];
+		[options addObject:@"noappledouble"];
+		[options addObject:@"noapplexattr"];
+		[options addObject:@"rdonly"];		// FOR NOW...
+		[options addObject:@"-s"];			// single-threaded mode... FOR NOW...
 		[options addObject:[NSString stringWithFormat:@"volname=%@", _volName]];
 		[options addObject:[NSString stringWithFormat:@"volicon=%@",
 							[[NSBundle mainBundle] pathForResource:@"ytfs" ofType:@"icns"]]];
-		//[options addObject:@"debug"];
+		NSLog(@"mount options: %@\n", options);
 		
 		NSString* mntPath = [NSString stringWithFormat:@"%@/%@", kMountPathPrefix, _volName];
 		NSLog(@"Mounting at '%@'", mntPath);
@@ -368,8 +387,14 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 ///////////////////////////////////////////////////////////////////////////////
 - (id) initWithVolumeName:(NSString*)volName andConnection:(EvernoteConnection*)conn;
 {
-	if ((self = [super init])) {
+	if ((self = [super init])) {		
+		NSNotificationCenter* dCent = [NSNotificationCenter defaultCenter];
+		[dCent addObserver:self selector:@selector(mountFailed:) name:kGMUserFileSystemMountFailed object:nil];
+		[dCent addObserver:self selector:@selector(didUnmount:) name:kGMUserFileSystemDidUnmount object:nil];
+		[dCent addObserver:self selector:@selector(didMount:) name:kGMUserFileSystemDidMount object:nil];
+		
 		_fs = [[GMUserFileSystem alloc] initWithDelegate:self isThreadSafe:YES];
+		_connLock = [[NSLock alloc] init];
 		
 		if (conn) [self setConnection:conn];		
 		if (volName) [self setVolumeName:volName];
@@ -402,8 +427,10 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 ///////////////////////////////////////////////////////////////////////////////
 - (void) unmount;
 {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[_fs unmount];
+	if (_mountStatus > kNotMounted) {
+		[_fs unmount];
+	}
+	
 	_mountStatus = kNotMounted;
 }
 
@@ -412,10 +439,14 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 {
 	[self unmount];
 	
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	
 	[_fs release];
 	[_volName release];
-	[_econn release];
 	[_fsAttrDict release];
+	
+	[_econn release];
+	[_connLock release];
 	
 	[_structCache release];
 	[_structCacheLock release];

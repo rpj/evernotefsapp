@@ -148,7 +148,8 @@ static NSString* kNoteStoreURL	= @"http://lb.evernote.com/edam/note";
 			if (nList) ret = [nList notes];
 		}
 		@catch (NSException* e) {
-			NSLog(@"Exception in notesInNotebook: %@", e);
+			NSLog(@"Exception in notesInNotebook: %@\n\n(notebook %@)\n", e, notebook);
+			@throw e;
 		}
 	}
 	

@@ -169,4 +169,10 @@ static NSString* kUserDefUseFullNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.U
 	
 	return NSTerminateNow;
 }
+
+///////////////////////////////////////////////////////////////////////////////
+- (IBAction) quit:(id)sender;
+{
+	[[NSApplication sharedApplication] terminate:self];
+}
 @end
