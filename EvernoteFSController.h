@@ -21,6 +21,8 @@
 	IBOutlet NSButton* _verifyAccount;
 	IBOutlet NSTextField* _info;
 	IBOutlet NSButton* _useFullName;
+	
+	BOOL _changingMountPoint;
 }
 
 - (void) mountFuseFS;

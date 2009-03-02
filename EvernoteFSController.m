@@ -22,6 +22,8 @@ static NSString* kUserDefUseFullNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.U
 	if ((self = [super init])) {
 		_efs = nil;
 		_econn = nil;
+		
+		_changingMountPoint = NO;
 	}
 	
 	return self;
@@ -80,6 +82,7 @@ static NSString* kUserDefUseFullNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.U
 ///////////////////////////////////////////////////////////////////////////////
 - (IBAction) fullNameToggle:(id)sender {
 	[[NSUserDefaults standardUserDefaults] setBool:([_useFullName state] == NSOnState) forKey:kUserDefUseFullNameKey];
+	_changingMountPoint = YES;
 	[self mountFuseFS];
 }
 
@@ -157,17 +160,27 @@ static NSString* kUserDefUseFullNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.U
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-- (void)applicationDidFinishLaunching:(NSNotification *)notification {
+- (void)applicationDidFinishLaunching:(NSNotification *)notification; 
+{
 	[_useFullName setState:([[NSUserDefaults standardUserDefaults] boolForKey:kUserDefUseFullNameKey])];
 	[self checkKeychainAndMount];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-	[_efs release];
-	[_econn release];
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender;
+{
+	NSApplicationTerminateReply reply = NSTerminateNow;
 	
-	return NSTerminateNow;
+	if (_changingMountPoint) {
+		reply = NSTerminateCancel;
+		_changingMountPoint = NO;
+	}
+	else {
+		[_efs release];
+		[_econn release];
+	}
+	
+	return reply;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

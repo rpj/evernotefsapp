@@ -164,23 +164,13 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 	if ([self _checkFolderAndCreateIfNeeded:notePath]) {
 		NSString* verifyPath = [NSString stringWithFormat:@"%@/contentVerify", notePath];
 		NSDictionary* verifyDict = nil;
-		BOOL needRefresh = NO;
+		BOOL needRefresh = YES;
 		
 		if ((verifyDict = [NSDictionary dictionaryWithContentsOfFile:verifyPath])) {
 			needRefresh = !([[note contentHash] isEqualToData:[verifyDict objectForKey:@"contentHash"]] &&
 							[(NSNumber*)[verifyDict objectForKey:@"contentLength"] intValue] == [note contentLength] &&
 							[(NSNumber*)[verifyDict objectForKey:@"created"] unsignedLongLongValue] == [note created] &&
 							[(NSNumber*)[verifyDict objectForKey:@"updated"] unsignedLongLongValue] == [note updated]);
-		}
-		else {
-			NSDictionary* verifyDict = [NSDictionary dictionaryWithObjectsAndKeys:
-										[note contentHash], @"contentHash", 
-										[NSNumber numberWithInt:[note contentLength]], @"contentLength",
-										[NSNumber numberWithUnsignedLongLong:[note created]], @"created", 
-										[NSNumber numberWithUnsignedLongLong:[note updated]], @"updated", nil];
-			
-			[verifyDict writeToFile:verifyPath atomically:NO];
-			needRefresh = YES;
 		}
 		
 		// for the time being, refresh is an all-or-nothing thing...
@@ -189,6 +179,7 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 			
 			NSString* content = nil;
 			NSString* contentPath = [NSString stringWithFormat:@"%@/content.xhtml", notePath];
+			BOOL writeVerify = YES;
 			
 			@try {
 				if (![note contentIsSet] || !(content = [note content])) {
@@ -207,11 +198,24 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 					NSData* resData = [_econn resourceContent:res];
 					[_connLock unlock];
 					
-					if (resData && [resData length]) {
+					if ((writeVerify = (resData && [resData length]))) {
 						NSString* path = [NSString stringWithFormat:@"%@/%@", notePath, [res guid]];
-						if (![resData writeToFile:path atomically:NO])
+						
+						if (![resData writeToFile:path atomically:NO]) {
 							NSLog(@"Unable to write resource at %@", path);
+							writeVerify = NO;
+						}
 					}
+				}
+				
+				if (writeVerify) {
+					NSDictionary* verifyDict = [NSDictionary dictionaryWithObjectsAndKeys:
+												[note contentHash], @"contentHash", 
+												[NSNumber numberWithInt:[note contentLength]], @"contentLength",
+												[NSNumber numberWithUnsignedLongLong:[note created]], @"created", 
+												[NSNumber numberWithUnsignedLongLong:[note updated]], @"updated", nil];
+					
+					[verifyDict writeToFile:verifyPath atomically:NO];
 				}
 			}
 			@catch (NSException* e) {
@@ -277,7 +281,7 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 ///////////////////////////////////////////////////////////////////////////////
 - (void) didUnmount:(NSNotification*)notify;
 {
-	NSLog(@"Unmounted by user: terminating.");
+	// if this is fired by toggling the "full name" checkbox in prefs, no termination will result
 	[[NSApplication sharedApplication] terminate:self];
 	_mountStatus = kNotMounted;
 }
@@ -294,7 +298,7 @@ static NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::E
 {
 	NSArray* retArr = nil;
 	
-	if (_mountStatus > kNotMounted) {
+	if (_mountStatus == kMounted) {
 		NSArray* comps = [path componentsSeparatedByString:@"/"];
 		NSString* topLvl = nil;
 		
