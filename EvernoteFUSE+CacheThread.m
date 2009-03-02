@@ -126,45 +126,44 @@
 			NSString* contentPath = [NSString stringWithFormat:@"%@/content.xhtml", notePath];
 			BOOL writeVerify = YES;
 			
-			@try {
-				if (![note contentIsSet] || !(content = [note content])) {
-					[_connLock lock];
-					content = [_econn noteContent:note];
-					[_connLock unlock];
-				}
+			if (![note contentIsSet] || !(content = [note content])) {
+				[_connLock lock];
+				@try { content = [_econn noteContent:note]; }
+				@catch (NSException* e) { NSLog(@"Exception getting note content: %@", e); }
+				@finally { [_connLock unlock]; }
+			}
+			
+			[content writeToFile:contentPath atomically:NO encoding:NSUTF8StringEncoding error:nil];
+			
+			NSEnumerator* resEnum = [[note resources] objectEnumerator];
+			EDAMResource* res = nil;
+			
+			while ((res = [resEnum nextObject])) {
+				[_connLock lock];
+				NSData* resData = nil;
 				
-				[content writeToFile:contentPath atomically:NO encoding:NSUTF8StringEncoding error:nil];
+				@try { resData = [_econn resourceContent:res]; }
+				@catch (NSException* e) { NSLog(@"Exception getting resource content: %@", e); }
+				@finally { [_connLock unlock]; }
 				
-				NSEnumerator* resEnum = [[note resources] objectEnumerator];
-				EDAMResource* res = nil;
-				
-				while ((res = [resEnum nextObject])) {
-					[_connLock lock];
-					NSData* resData = [_econn resourceContent:res];
-					[_connLock unlock];
+				if ((writeVerify = (resData && [resData length]))) {
+					NSString* path = [NSString stringWithFormat:@"%@/%@", notePath, [res guid]];
 					
-					if ((writeVerify = (resData && [resData length]))) {
-						NSString* path = [NSString stringWithFormat:@"%@/%@", notePath, [res guid]];
-						
-						if (![resData writeToFile:path atomically:NO]) {
-							NSLog(@"Unable to write resource at %@", path);
-							writeVerify = NO;
-						}
+					if (![resData writeToFile:path atomically:NO]) {
+						NSLog(@"Unable to write resource at %@", path);
+						writeVerify = NO;
 					}
 				}
-				
-				if (writeVerify) {
-					NSDictionary* verifyDict = [NSDictionary dictionaryWithObjectsAndKeys:
-												[note contentHash], @"contentHash", 
-												[NSNumber numberWithInt:[note contentLength]], @"contentLength",
-												[NSNumber numberWithUnsignedLongLong:[note created]], @"created", 
-												[NSNumber numberWithUnsignedLongLong:[note updated]], @"updated", nil];
-					
-					[verifyDict writeToFile:verifyPath atomically:NO];
-				}
 			}
-			@catch (NSException* e) {
-				NSLog(@"Exception in _refreshNoteDiskCache:%@: %@", [note title], e);
+			
+			if (writeVerify) {
+				NSDictionary* verifyDict = [NSDictionary dictionaryWithObjectsAndKeys:
+											[note contentHash], @"contentHash", 
+											[NSNumber numberWithInt:[note contentLength]], @"contentLength",
+											[NSNumber numberWithUnsignedLongLong:[note created]], @"created", 
+											[NSNumber numberWithUnsignedLongLong:[note updated]], @"updated", nil];
+				
+				[verifyDict writeToFile:verifyPath atomically:NO];
 			}
 		}
 	}

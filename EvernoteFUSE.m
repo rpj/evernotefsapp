@@ -186,14 +186,6 @@ const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::ED
 	
 	return retDict;
 }
-
-
-///////////////////////////////////////////////////////////////////////////////
-- (NSDictionary *)attributesOfItemAtPath:(NSString *)path 
-                                   error:(NSError **)error;
-{
-	return [self attributesOfItemAtPath:path userData:nil error:error];
-}
 @end
 
 
