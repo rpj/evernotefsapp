@@ -120,7 +120,7 @@
 		
 		// for the time being, refresh is an all-or-nothing thing...
 		if (needRefresh) {
-			NSLog(@"Refreshing %@ (%@)...", [note title], [note guid]);
+			NSLog(@"Refreshing \"%@\" (%@)", [note title], [note guid]);
 			
 			NSString* content = nil;
 			NSString* contentPath = [NSString stringWithFormat:@"%@/content.xhtml", notePath];
@@ -146,13 +146,17 @@
 				@catch (NSException* e) { NSLog(@"Exception getting resource content: %@", e); }
 				@finally { [_connLock unlock]; }
 				
-				if ((writeVerify = (resData && [resData length]))) {
+				if (resData && [resData length]) {
 					NSString* path = [NSString stringWithFormat:@"%@/%@", notePath, [res guid]];
 					
 					if (![resData writeToFile:path atomically:NO]) {
 						NSLog(@"Unable to write resource at %@", path);
 						writeVerify = NO;
 					}
+				}
+				else {
+					NSLog(@"Data for resource %@ is no good.", [res guid]);
+					writeVerify = NO;
 				}
 			}
 			
@@ -173,7 +177,6 @@
 - (void) refreshDiskCache;
 {
 	[_diskCacheLock lock];
-	NSLog(@"[%@ refreshDiskCache] starting", [NSThread currentThread]);
 	
 	if (_diskCache) [_diskCache release];
 	_diskCache = [[NSMutableDictionary alloc] init];
@@ -206,7 +209,6 @@
 		}
 	}
 	
-	NSLog(@"[%@ refreshDiskCache] ending", [NSThread currentThread]);
 	[_diskCacheLock unlock];
 }
 @end

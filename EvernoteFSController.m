@@ -172,6 +172,7 @@ static NSString* kUserDefUseFullNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.U
 	NSApplicationTerminateReply reply = NSTerminateNow;
 	
 	if (_changingMountPoint) {
+		NSLog(@"Told to terminate but we're changing mount point; cancelling.");
 		reply = NSTerminateCancel;
 		_changingMountPoint = NO;
 	}

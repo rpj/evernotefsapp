@@ -74,6 +74,7 @@ const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::ED
 - (void) didUnmount:(NSNotification*)notify;
 {
 	// if this is fired by toggling the "full name" checkbox in prefs, no termination will result
+	NSLog(@"didUnmount notification");
 	[[NSApplication sharedApplication] terminate:self];
 	_mountStatus = kNotMounted;
 }
