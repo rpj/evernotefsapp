@@ -35,6 +35,7 @@
 		948931440F5211EB00AB51F5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948931430F5211EB00AB51F5 /* Security.framework */; };
 		9489332B0F522E2600AB51F5 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 9489332A0F522E2600AB51F5 /* Credits.html */; };
 		94B1EC8A0F5B816B00DF3F60 /* EvernoteFUSE+CacheThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B1EC890F5B816B00DF3F60 /* EvernoteFUSE+CacheThread.m */; };
+		94EF55260F5CB2EC00DBAB98 /* EDAMNote+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF55250F5CB2EC00DBAB98 /* EDAMNote+Extras.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		948931430F5211EB00AB51F5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		9489332A0F522E2600AB51F5 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		94B1EC890F5B816B00DF3F60 /* EvernoteFUSE+CacheThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EvernoteFUSE+CacheThread.m"; sourceTree = "<group>"; };
+		94EF55250F5CB2EC00DBAB98 /* EDAMNote+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EDAMNote+Extras.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				941921200E94A86B00DDB01C /* EvernoteFSController.m */,
 				9419217C0E95730700DDB01C /* EvernoteConnection.h */,
 				9419217D0E95730700DDB01C /* EvernoteConnection.m */,
+				94EF55250F5CB2EC00DBAB98 /* EDAMNote+Extras.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				94892FE70F52009000AB51F5 /* TProtocolUtil.m in Sources */,
 				94892FE80F52009000AB51F5 /* TApplicationException.m in Sources */,
 				94B1EC8A0F5B816B00DF3F60 /* EvernoteFUSE+CacheThread.m in Sources */,
+				94EF55260F5CB2EC00DBAB98 /* EDAMNote+Extras.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -101,7 +101,6 @@ static NSString* kUserDefUseFullNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.U
 			[_efs setVolumeName:volName];
 		}
 		
-		NSLog(@"Built EvernoteFUSE \"%@\"", volName);
 		[_efs mount];
 	}
 	else {
@@ -190,5 +189,11 @@ static NSString* kUserDefUseFullNameKey		= @"me.rpj.EvernoteFSApp.UserDefaults.U
 - (IBAction) quit:(id)sender;
 {
 	[[NSApplication sharedApplication] terminate:self];
+}
+
+
+- (IBAction) fire:(id)sender;
+{
+	[_efs _fireCacheThread:nil];
 }
 @end

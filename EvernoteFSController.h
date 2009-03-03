@@ -32,4 +32,5 @@
 - (IBAction) fullNameToggle:(id)sender;
 
 - (IBAction) quit:(id)sender;
+- (IBAction) fire:(id)sender;
 @end
