@@ -3136,7 +3136,7 @@ static NSString * EDAM_NOTE_SOURCE_MAIL_SMTP_GATEWAY = @"mail.smtp";
         break;
       case 11:
         if (fieldType == TType_STRUCT) {
-          EDAMResourceAttributes *fieldValue = [[EDAMResourceAttributes alloc] init];
+		  EDAMResourceAttributes *fieldValue = [[[EDAMResourceAttributes alloc] init] autorelease];
           [fieldValue read: inProtocol];
           [self setAttributes: fieldValue];
           [fieldValue release];
