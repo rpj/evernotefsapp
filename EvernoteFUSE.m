@@ -11,8 +11,6 @@
 #import <MacFUSE/GMUserFileSystem.h>
 
 static NSString* kMountPathPrefix			= @"/Volumes";
-static NSTimeInterval kCacheRefreshTimeSecs	= 15.0;		// should be in prefs...
-
 const NSString* kAppSupportFolder			= @"~/Library/Application Support/EvernoteFS";
 const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::EDAMObject";
 
@@ -67,7 +65,7 @@ const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::ED
 ///////////////////////////////////////////////////////////////////////////////
 - (void) didMount:(NSNotification*)notify;
 {
-	NSLog(@"Mounted new EvernoteFS at \"%@\"", [[notify userInfo] objectForKey:kGMUserFileSystemMountPathKey]);
+	NSLog(@"Mounted new EvernoteFS at '%@'", [[notify userInfo] objectForKey:kGMUserFileSystemMountPathKey]);
 	NSAssert1((_mountStatus == kMounting), @"didMount: mount status should be kMounting, but is %d", _mountStatus);
 	_mountStatus = kMounted;
 }
@@ -194,28 +192,6 @@ const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::ED
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-@implementation EvernoteFUSE (KindaPrivate)
-///////////////////////////////////////////////////////////////////////////////
-- (void) _fireCacheThread:(NSTimer*)timer;
-{
-	[NSThread detachNewThreadSelector:@selector(generateCache:) toTarget:self withObject:nil];
-}
-
-///////////////////////////////////////////////////////////////////////////////
-- (void) _setCacheThreadTimerOnMainThread;
-{/*
-	if (![[NSThread currentThread] isMainThread]) {
-		NSLog(@"_setCacheThreadTimerOnMainThread called from thread %@: bouncing", [NSThread currentThread]);
-		[self performSelectorOnMainThread:@selector(_setCacheThreadTimerOnMainThread) withObject:nil waitUntilDone:NO];
-	}
-	else {
-		NSLog(@"Setting timer to fire in %0.1f second(s)", kCacheRefreshTimeSecs);
-		[NSTimer scheduledTimerWithTimeInterval:kCacheRefreshTimeSecs target:self 
-									   selector:@selector(_fireCacheThread:) userInfo:nil repeats:NO];
-	}*/
-}
-@end
-
 @implementation EvernoteFUSE
 ///////////////////////////////////////////////////////////////////////////////
 - (NSString*) volumeName;
@@ -244,7 +220,7 @@ const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::ED
 	_econn = [conn retain];
 	[_connLock unlock];
 	
-	[self _fireCacheThread:nil];
+	[NSThread detachNewThreadSelector:@selector(generateCache:) toTarget:self withObject:nil];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -254,16 +230,18 @@ const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::ED
 		NSMutableArray* options = [NSMutableArray array];
 		[options addObject:@"daemon_timeout=15"];
 		[options addObject:@"fsname=EvernoteFS"];
+		//[options addObject:@"kill_on_unmount"];
 		[options addObject:@"noappledouble"];
 		[options addObject:@"noapplexattr"];
 		[options addObject:@"rdonly"];		// FOR NOW...
-		//[options addObject:@"-s"];			// single-threaded mode... FOR NOW...
+		[options addObject:@"-s"];			// single-threaded mode... FOR NOW...
 		[options addObject:[NSString stringWithFormat:@"volname=%@", _volName]];
 		[options addObject:[NSString stringWithFormat:@"volicon=%@",
 							[[NSBundle mainBundle] pathForResource:@"ytfs" ofType:@"icns"]]];
 		//NSLog(@"mount options: %@\n", options);
 		
 		NSString* mntPath = [NSString stringWithFormat:@"%@/%@", kMountPathPrefix, _volName];
+		NSLog(@"Mounting at '%@'", mntPath);
 		[_fs mountAtPath:mntPath withOptions:options];
 		
 		_mountStatus = kMounting;
@@ -334,15 +312,10 @@ const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::ED
 	[_volName release];
 	[_fsAttrDict release];
 	
-	[_connLock lock];
 	[_econn release];
-	[_connLock unlock];
 	[_connLock release];
 	
-	[_structCacheLock lock];
-	NSLog(@"Releasing struct cache");
 	[_structCache release];
-	[_structCacheLock unlock];
 	[_structCacheLock release];
 	
 	[_diskCache release];

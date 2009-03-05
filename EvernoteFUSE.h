@@ -67,8 +67,3 @@ typedef enum {
 - (void) mount;
 - (void) unmount;
 @end
-
-@interface EvernoteFUSE (KindaPrivate)
-- (void) _setCacheThreadTimerOnMainThread;
-- (void) _fireCacheThread:(NSTimer*)timer;
-@end
