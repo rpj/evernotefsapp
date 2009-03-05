@@ -20,6 +20,7 @@
 - (void) generateCache:(id)arg;
 {
 	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+	NSDate* start = [NSDate date];
 	
 	if (_econn) {
 		EDAMNotebook* ntbk = nil;
@@ -35,10 +36,13 @@
 		
 		@try {
 			_structCache = [[NSMutableDictionary alloc] init];
+			NSLog(@"Calling listNotebooks");
 			ntbkEnum = [[_econn listNotebooks] objectEnumerator];
 			
 			while ((ntbk = [ntbkEnum nextObject])) {
 				[_structCache setObject:ntbk forKey:[ntbk name]];
+				NSLog(@"Releasing notebook 0x%x", ntbk);
+				[ntbk release];
 			}
 		}
 		@catch (NSException* e) {
@@ -60,12 +64,15 @@
 		@try {
 			while ((ntbkName = [ntbkEnum nextObject])) {
 				ntbk = (EDAMNotebook*)[_structCache objectForKey:ntbkName];
+				NSLog(@"Calling notesInNotebook");
 				NSEnumerator* nEnum = [[_econn notesInNotebook:ntbk] objectEnumerator];
 				EDAMNote* note = nil;
 				NSMutableDictionary* ntbkDict = [NSMutableDictionary dictionary];
 				
 				while ((note = [nEnum nextObject])) {
 					[ntbkDict setObject:note forKey:[note title]];
+					NSLog(@"Releasing note 0x%x", note);
+					[note release];
 				}
 				
 				[ntbkDict setObject:ntbk forKey:kEDAMObjectSpecialKey];
@@ -83,6 +90,7 @@
 		[self refreshDiskCache];
 	}
 	
+	NSLog(@"generateCache finished in %0.3f seconds.", -[start timeIntervalSinceNow]);
 	[pool release];
 }
 
@@ -176,6 +184,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 - (void) refreshDiskCache;
 {
+	NSDate* start = [NSDate date];
 	[_diskCacheLock lock];
 	
 	if (_diskCache) [_diskCache release];
@@ -210,5 +219,6 @@
 	}
 	
 	[_diskCacheLock unlock];
+	NSLog(@"refreshDiskCache finished in %0.3f seconds.", -[start timeIntervalSinceNow]);
 }
 @end
