@@ -33,6 +33,16 @@ static NSString* kNoteStoreURL	= @"http://lb.evernote.com/edam/note";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+- (void) _refreshSyncState;
+{
+	if (_lastSyncState)
+		[_lastSyncState release];
+	
+	if (_noteStoreClient && _authToken)
+		_lastSyncState = [[_noteStoreClient getSyncState:_authToken] retain];
+}
+
+///////////////////////////////////////////////////////////////////////////////
 - (id) initWithUserName:(NSString*)username andPassword:(NSString*)password;
 {
 	if (username && password && (self = [super init])) {
@@ -83,8 +93,9 @@ static NSString* kNoteStoreURL	= @"http://lb.evernote.com/edam/note";
 					httptrans = [[[THTTPClient alloc] initWithURL:shardedURL] autorelease];
 					tbproto = [[TBinaryProtocolFactory sharedFactory] newProtocolOnTransport:httptrans];
 					
-					_noteStoreClient = [[EDAMNoteStoreClient alloc] initWithProtocol:tbproto];					
-					retVal = (_noteStoreClient && _userStoreClient && _authToken && _authedUser);
+					_noteStoreClient = [[EDAMNoteStoreClient alloc] initWithProtocol:tbproto];
+					[self _refreshSyncState];
+					retVal = (_noteStoreClient && _userStoreClient && _authToken && _authedUser && _lastSyncState);
 				}
 			}
 		}
@@ -169,6 +180,21 @@ static NSString* kNoteStoreURL	= @"http://lb.evernote.com/edam/note";
 	}
 	
 	return ret;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (EDAMSyncState*) syncState;
+{
+	EDAMSyncState* retState = nil;
+	
+	if (_noteStoreClient && _authToken) {
+		if (!_lastSyncState)
+			[self _refreshSyncState];
+		
+		retState = _lastSyncState;
+	}
+	
+	return retState;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

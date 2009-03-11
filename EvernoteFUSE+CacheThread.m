@@ -31,7 +31,7 @@
 		
 		if (_structCache) {
 			[_structCache release];
-		}		
+		}
 		
 		@try {
 			_structCache = [[NSMutableDictionary alloc] init];
@@ -59,23 +59,26 @@
 		
 		@try {
 			while ((ntbkName = [ntbkEnum nextObject])) {
-				ntbk = (EDAMNotebook*)[_structCache objectForKey:ntbkName];
-				NSEnumerator* nEnum = [[_econn notesInNotebook:ntbk] objectEnumerator];
-				EDAMNote* note = nil;
-				NSMutableDictionary* ntbkDict = [NSMutableDictionary dictionary];
-				
-				while ((note = [nEnum nextObject])) {
-					[ntbkDict setObject:note forKey:[note title]];
+				if (![ntbkName isEqualToString:(NSString*)kEDAMObjectSpecialKey]) {
+					ntbk = (EDAMNotebook*)[_structCache objectForKey:ntbkName];
+					NSEnumerator* nEnum = [[_econn notesInNotebook:ntbk] objectEnumerator];
+					EDAMNote* note = nil;
+					NSMutableDictionary* ntbkDict = [NSMutableDictionary dictionary];
+					
+					while ((note = [nEnum nextObject])) {
+						[ntbkDict setObject:note forKey:[note title]];
+					}
+					
+					[ntbkDict setObject:ntbk forKey:kEDAMObjectSpecialKey];
+					[_structCache setObject:ntbkDict forKey:ntbkName];
 				}
-				
-				[ntbkDict setObject:ntbk forKey:kEDAMObjectSpecialKey];
-				[_structCache setObject:ntbkDict forKey:ntbkName];
 			}
 		}
 		@catch (NSException* e) {
 			NSLog(@"Exception in stage two: %@", e);
 		}
 		@finally {
+			//NSLog(@"Struct Cache:\n%@\n\n", _structCache);
 			[_structCacheLock unlockWithCondition:kNotesCacheReady];
 			[_connLock unlock];
 		}
@@ -185,27 +188,30 @@
 	[self _checkFolderAndCreateIfNeeded:expAppSup];
 	
 	NSEnumerator* nbEnum = [[_structCache allValues] objectEnumerator];
-	NSDictionary* dict = nil;
+	id obj = nil;
 	
-	while ((dict = [nbEnum nextObject])) {
-		EDAMNotebook* nb = [dict objectForKey:kEDAMObjectSpecialKey];
-		
-		if (nb && [nb guidIsSet]) {
-			NSString* nbFolder = [[NSString stringWithFormat:@"%@/%@", kAppSupportFolder, [nb guid]] stringByExpandingTildeInPath];
+	while ((obj = [nbEnum nextObject])) {
+		if ([obj isKindOfClass:[NSDictionary class]]) {
+			NSDictionary* dict = (NSDictionary*)obj;
+			EDAMNotebook* nb = [dict objectForKey:kEDAMObjectSpecialKey];
 			
-			if ([self _checkFolderAndCreateIfNeeded:nbFolder]) {
-				NSEnumerator* dEnum = [[dict allKeys] objectEnumerator];
-				NSString* dKey = nil;
-				EDAMNote* note = nil;
+			if (nb && [nb isKindOfClass:[EDAMNotebook class]] && [nb guidIsSet]) {
+				NSString* nbFolder = [[NSString stringWithFormat:@"%@/%@", kAppSupportFolder, [nb guid]] stringByExpandingTildeInPath];
 				
-				while ((dKey = [dEnum nextObject])) {
-					if (![dKey isEqualToString:(NSString*)kEDAMObjectSpecialKey] && 
-						([(note = [dict objectForKey:dKey]) isKindOfClass:[EDAMNote class]])) {
-						[self _refreshNoteDiskCache:note inNotebook:nbFolder];
+				if ([self _checkFolderAndCreateIfNeeded:nbFolder]) {
+					NSEnumerator* dEnum = [[dict allKeys] objectEnumerator];
+					NSString* dKey = nil;
+					EDAMNote* note = nil;
+					
+					while ((dKey = [dEnum nextObject])) {
+						if (![dKey isEqualToString:(NSString*)kEDAMObjectSpecialKey] && 
+							([(note = [dict objectForKey:dKey]) isKindOfClass:[EDAMNote class]])) {
+							[self _refreshNoteDiskCache:note inNotebook:nbFolder];
+						}
 					}
 				}
+				else NSLog(@"Error creating '%@'", nbFolder);
 			}
-			else NSLog(@"Error creating '%@'", nbFolder);
 		}
 	}
 	

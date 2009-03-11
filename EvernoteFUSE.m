@@ -94,8 +94,9 @@ const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::ED
 	if (_mountStatus == kMounted) {
 		NSArray* comps = [path componentsSeparatedByString:@"/"];
 		NSString* topLvl = nil;
+		NSUInteger count = [comps count];
 		
-		if ([comps count] > 1 && (topLvl = [comps objectAtIndex:1])) {
+		if (count > 1 && (topLvl = [comps objectAtIndex:1])) {
 			id structObj = nil;
 			
 			if ([topLvl isEqualToString:@""] && [_structCacheLock tryLockWhenConditionGTE:kNotebookCacheReady]) {
@@ -107,12 +108,45 @@ const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::ED
 					NSMutableArray* mrArr = [NSMutableArray array];
 					NSEnumerator* nEnum = [[(NSDictionary*)structObj allKeys] objectEnumerator];
 					id note = nil;
+					EDAMNote* nNote = nil;
 					
-					while ((note = [structObj objectForKey:(NSString*)[nEnum nextObject]])) {
-						if ([note isKindOfClass:[EDAMNote class]])
-							[mrArr addObject:[(EDAMNote*)note title]];
+					// level two is the note-folder level
+					if (count == 2) {
+						while ((note = [structObj objectForKey:(NSString*)[nEnum nextObject]])) {
+							if ([note isKindOfClass:[EDAMNote class]]) {
+								nNote = (EDAMNote*)note;
+								
+								[mrArr addObject:[nNote title]];
+							}
+						}
 					}
-					
+					else if (count == 3) {	// level three is within a note-folder, hence the note's contents
+						nNote = [structObj objectForKey:[comps objectAtIndex:2]];
+						
+						if (nNote) {
+							
+							[mrArr addObject:[NSString stringWithFormat:@"%@.html", [nNote title]]];
+							
+							NSEnumerator* resEnum = [[nNote resources] objectEnumerator];
+							EDAMResource* res = nil;
+							
+							while ((res = [resEnum nextObject])) {
+								EDAMResourceAttributes* attrs = [res attributes];
+								NSString* name = nil;
+								
+								if ([attrs fileNameIsSet]) {
+									name = [attrs fileName];
+								}
+								else {
+									NSString* mimeExtn = [[[res mime] componentsSeparatedByString:@"/"] objectAtIndex:1];
+									name = [NSString stringWithFormat:@"%@.%@", [res guid], mimeExtn];
+								}
+								
+								[mrArr addObject:name];
+							}
+						}
+					}
+			
 					retArr = (NSArray*)mrArr;
 				}
 				
@@ -120,7 +154,8 @@ const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::ED
 			}
 		}
 	}
-	else NSLog(@"contentsOfDirectoryAtPath:%@ -- not yet mounted (%d)", path, _mountStatus);
+	else 
+		NSLog(@"contentsOfDirectoryAtPath:%@ -- not yet mounted (%d)", path, _mountStatus);
 	
 	return retArr;
 }
@@ -162,6 +197,7 @@ const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::ED
                                 userData:(id)userData
                                    error:(NSError **)error;
 {
+	// thinking we're going to need a seperate attributes cache data structure at some point...
 	NSDictionary* retDict = nil;
 	NSArray* comps = [path componentsSeparatedByString:@"/"];
 	NSString* top = nil;
@@ -174,11 +210,46 @@ const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::ED
 	
 	if (cCount > 1 && (top = [comps objectAtIndex:1])) {
 		if ([_structCacheLock tryLockWhenConditionGTE:kNotebookCacheReady]) {
-			if (cCount <= 3 && ([top isEqualToString:@""] || [_structCache objectForKey:top])) {
+			NSDictionary* dict = nil;
+			
+			if (cCount < 4 && ([top isEqualToString:@""] || (dict = [_structCache objectForKey:top]))) {
 				retDict = [NSDictionary dictionaryWithObjectsAndKeys:
 						   NSFileTypeDirectory, NSFileType, 
 						   [NSNumber numberWithUnsignedLong:365], NSFilePosixPermissions,
 						   [NSNumber numberWithUnsignedLongLong:1024], NSFileSize, nil];
+			}
+			else if (cCount == 4) {
+				EDAMNote* cNote = [[_structCache objectForKey:[comps objectAtIndex:1]] 
+								   objectForKey:[comps objectAtIndex:2]];
+				NSString* fName = [comps objectAtIndex:3];
+				NSArray* fNameArr = [fName componentsSeparatedByString:@"."];
+				
+				if ([fNameArr count] == 2) {
+					NSString* fN = [fNameArr objectAtIndex:0];
+					NSString* extn = [fNameArr objectAtIndex:1];
+					
+					if ([fN isEqualToString:[cNote title]] && [extn isEqualToString:@"html"]) {
+						// this is the HTML file we'll generate (later) from the a translation of the ENML markup
+					}
+					else {
+						NSEnumerator* rEnum = [[cNote resources] objectEnumerator];
+						EDAMResource* res = nil;
+						
+						while ((res = [rEnum nextObject])) {
+							EDAMResourceAttributes* rAttr = [res attributes];
+							EDAMData* rData = [res data];
+							NSString* mimeExtn = [[[res mime] componentsSeparatedByString:@"/"] objectAtIndex:1];
+							
+							if (([rAttr fileNameIsSet] && [[rAttr fileName] isEqualToString:fName]) ||
+								([fN isEqualToString:[res guid]] && [extn isEqualToString:mimeExtn])) {
+								retDict = [NSDictionary dictionaryWithObjectsAndKeys:
+										   [NSNumber numberWithUnsignedInt:[rData size]], NSFileSize,
+										   NSFileTypeRegular, NSFileType,
+										   [NSNumber numberWithUnsignedLong:292], NSFilePosixPermissions, nil];
+							}
+						}
+					}
+				}
 			}
 			
 			[_structCacheLock unlockWithLastCondition];
@@ -186,6 +257,21 @@ const NSString* kEDAMObjectSpecialKey		= @"//me.rpj.EvernoteFSApp.SpecialKey::ED
 	}
 	
 	return retDict;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+- (NSData *)contentsAtPath:(NSString *)path;
+{
+	NSData* retData = nil;
+	
+	if ([_diskCacheLock lockBeforeDate:[NSDate dateWithTimeIntervalSinceNow:0.25]]) {
+		//NSArray* comps = [path componentsSeparatedByString:@"/"];
+		//NSLog(@"Disk Cache: %@", _diskCache);
+		
+		[_diskCacheLock unlock];
+	}
+	
+	return retData;
 }
 @end
 
